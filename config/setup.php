@@ -1,15 +1,20 @@
 <?php
 
-include "database.php";
-
-try {
-	$connection = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-	$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
+function dataco()
 {
-	echo "Connection failed";
+	include 'database.php';
+	try {
+		$connection = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	}
+	catch(PDOException $e)
+	{
+		echo "Connection failed";
+	}
+	return ($connection);
 }
+
+$connection = dataco();
 
 $user = "CREATE TABLE IF NOT EXISTS User (
 	user_id INT NOT NULL AUTO_INCREMENT,
@@ -44,5 +49,6 @@ $connection->exec('CREATE DATABASE IF NOT EXISTS shanbase;
 $connection->exec($user);
 $connection->exec($image);
 $connection->exec($comlik);
-header("location: ../home.php");
+header("location: ../home/home.php");
+
 ?>
