@@ -24,5 +24,5 @@ var cobutton = document.getElementById("cobutton");
 cobutton.addEventListener("click", coredirect);
 function coredirect()
 {
-	location.href = "inscription.php";
+	location.href = "connection/connection.php";
 }

@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 $loggued = (isset($_SESSION['User'])) ? $_SESSION['User']:'';
 ?>
 <html>

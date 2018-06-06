@@ -49,6 +49,7 @@ $connection->exec('CREATE DATABASE IF NOT EXISTS shanbase;
 $connection->exec($user);
 $connection->exec($image);
 $connection->exec($comlik);
+
 header("location: ../home/home.php");
 
 ?>
