@@ -60,7 +60,7 @@ label {
 	height: 1%;
 }
 
-input {
+input[type="text"] {
 	margin-left: 2.5%;
 	margin-top: 2%;
 }
@@ -70,4 +70,15 @@ input {
 	width: 25%;
 	height: 2.5%;
 	margin-left: 37.5%;
+}
+
+#okey {
+	width: 20%;
+	margin-left: 35%;
+	margin-top: 2.5%
+}
+
+#retour {
+	float: right;
+	width: 25%;
 }

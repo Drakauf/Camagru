@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
 {
-	if (!empty($_GET['f_name']) && !empty($_GET['l_name']) && !empty($_GET['phone']) && !empty($_GET['mail']) && !empty($_GET['passwd']))
+	if (!empty($_GET['pseudo']) && !empty($_GET['mail']) && !empty($_GET['passwd']))
 	{
 		$insfail = 0;
 	}
@@ -18,8 +18,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
 		<meta charset="utf-8">
 		<title>Services Le-101</title>
 		<link rel="stylesheet" href="connection.css">
-		<script type="text/javascript"> var c='<?php if (isset($insfail) && $insfail == 1) {echo 0;} else {echo (1);}?>';
-		alert (c);</script>
+		<script type="text/javascript"> var c='<?php if (isset($insfail) && $insfail != 0) {echo 0;} else {echo (1);}?>';</script>
 	</head>
 	<body>
 	<div id="bigdiv">
@@ -30,7 +29,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
 		<div id="inscription">
 			<p id="intro">texte pour lefun fjhwevfhjewj fewjfbjewbf bfjqbfjb jkwebfk bewfkbewk bfkewbfjk fjkbewjkbf jkewbkjb ewjkfbejkwbf jkewbfjkbewjk bfewjkbf jkewbfjkbewjkfb jkewbfjkewbfjk bewjkfbjk ewbfjkb ewjkfb ejkwbfejkwbfjk bewfjkbewjkfb ejkwbfejkwbfjkewbfjkbewjkfbewjkbfjk bwefjk</p>
 			<form  action:"connectuser.php" method:"GET">
-				<?php if (isset($fail) && $fail == 1)
+				<?php if (isset($insfail) && $insfail == 1)
 				{echo "<p> Merci de remplir tout les champs</p>";}?>
 				<label for="mail">Mail: </label>
 				<input type="Text" name="mail" value =<?php if (!empty($_GET['mail'])){ echo $_GET['mail'];}?>> <br>
@@ -38,11 +37,12 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
 				<input type="Text" name="pseudo" value =<?php if (!empty($_GET['pseudo'])){ echo $_GET['pseudo'];}?>><br>
 				<label for="mdp">MDP: </label>
 				<input type="Text" name="passwd" value =<?php if (!empty($_GET['passwd'])){ echo $_GET['passwd'];}?>><br>
-				<input  id="formsize" type="submit" name="submit"  value="OK">
+				<input  id="okey" type="submit" name="submit"  value="Ready to enter">
+				<input  id="okey" type="hidden" name="submit"  value="OK">
 			</form>
 		</div>
 		<div id="acceuil">
-<p>pdsdsdsdsaadeeeeeeeefffffs</p>
+<button type="text" id="retour">Retourner a l'acceuil</button>
 		</div>
 	</div>
 	<script src="connection.js"></script>
