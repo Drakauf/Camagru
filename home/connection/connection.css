@@ -31,13 +31,22 @@ button:hover{
 	height: 2.5%;
 }
 
+#connection {
+	margin-top: 2%;
+	background-color: #E1F5FE;
+	width: 40%;
+	height:50%;
+	font-size: 1vmin;
+	margin-left: 30%;
+}
+
 #inscription {
 	margin-top: 2%;
 	background-color: #E1F5FE;
-	width: 25%;
+	width: 40%;
 	height:50%;
 	font-size: 1vmin;
-	margin-left: 37.5%;
+	margin-left: 30%;
 }
 
 p {
@@ -60,16 +69,11 @@ label {
 	height: 1%;
 }
 
-input[type="text"] {
-	margin-left: 2.5%;
-	margin-top: 2%;
-}
-
 #acceuil {
 	background-color: yellow;
-	width: 25%;
+	width: 40%;
 	height: 2.5%;
-	margin-left: 37.5%;
+	margin-left: 30%;
 }
 
 #okey {

@@ -1,16 +1,14 @@
-//-------------------------------------------------------------------\\
-// Div a afficher                                                    \\
-//-------------------------------------------------------------------\\
+/*********************************************************************/
+/* Div a afficher                                                    */
+/*********************************************************************/
 
 var con= document.getElementById("co");
 var ins= document.getElementById("in");
 var insdiv = document.getElementById("inscription");
 var condiv = document.getElementById("connection");
-var ra = document.getElementById("retour");
 
 con.addEventListener("click", cofun);
 ins.addEventListener("click", infun);
-ra.addEventListener("click", rafun);
 affichdiv();
 
 function cofun()
@@ -38,6 +36,14 @@ function affichdiv()
 		condiv.style.display= "none";
 	}
 }
+
+/*********************************************************************/
+/* Div a afficher                                                    */
+/*********************************************************************/
+
+var ra = document.getElementById("retour");
+
+ra.addEventListener("click", rafun);
 
 function rafun()
 {

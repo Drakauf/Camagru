@@ -1,9 +1,13 @@
 <?php
-if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
+
+/* --------------- --------------- --------------- Form pour inscription --------------- --------------- --------------- */
+
+if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 {
-	if (!empty($_GET['pseudo']) && !empty($_GET['mail']) && !empty($_GET['passwd']))
+	if (!empty($_GET['ipseudo']) && !empty($_GET['imail']) && !empty($_GET['ipasswd']))
 	{
-		$insfail = 0;
+		if (isset($insfail))
+			unset($insfail);
 	}
 	else
 	{
@@ -11,6 +15,9 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
 		$c = 0;
 	}
 }
+
+/* --------------- --------------- --------------- Form pour connection --------------- --------------- --------------- */
+
 ?>
 
 <html>
@@ -26,18 +33,31 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'OK')
 			<button type="text" id="co">Connection</button>
 			<button type="text" id="in">Inscription</button>
 		</div>
+		<?php /* --------------- --------------- --------------- Form pour inscription --------------- --------------- --------------- */ ?>
 		<div id="inscription">
 			<p id="intro">texte pour lefun fjhwevfhjewj fewjfbjewbf bfjqbfjb jkwebfk bewfkbewk bfkewbfjk fjkbewjkbf jkewbkjb ewjkfbejkwbf jkewbfjkbewjk bfewjkbf jkewbfjkbewjkfb jkewbfjkewbfjk bewjkfbjk ewbfjkb ewjkfb ejkwbfejkwbfjk bewfjkbewjkfb ejkwbfejkwbfjkewbfjkbewjkfbewjkbfjk bwefjk</p>
-			<form  action:"connectuser.php" method:"GET">
+			<form  action:"connection.php" method:"GET">
 				<?php if (isset($insfail) && $insfail == 1)
 				{echo "<p> Merci de remplir tout les champs</p>";}?>
-				<label for="mail">Mail: </label>
-				<input type="Text" name="mail" value =<?php if (!empty($_GET['mail'])){ echo $_GET['mail'];}?>> <br>
-				<label for="pseudo">Pseudo: </label>
-				<input type="Text" name="pseudo" value =<?php if (!empty($_GET['pseudo'])){ echo $_GET['pseudo'];}?>><br>
-				<label for="mdp">MDP: </label>
-				<input type="Text" name="passwd" value =<?php if (!empty($_GET['passwd'])){ echo $_GET['passwd'];}?>><br>
+				<label for="imail">Mail: </label>
+				<input type="text" name="imail" value =<?php if (!empty($_GET['mail'])){ echo $_GET['mail'];}?>> <br>
+				<label for="ipseudo">Pseudo: </label>
+				<input type="text" name="ipseudo" value =<?php if (!empty($_GET['pseudo'])){ echo $_GET['pseudo'];}?>><br>
+				<label for="imdp">MDP: </label>
+				<input type="password" name="ipasswd"<br>
 				<input  id="okey" type="submit" name="submit"  value="Ready to enter">
+				<input  id="okey" type="hidden" name="submit"  value="inscription">
+			</form>
+		</div>
+		<?php /* --------------- --------------- --------------- Form pour connection --------------- --------------- --------------- */ ?>
+		<div id="connection">
+			<p id="intro">texte pour lefun fjhwevfhjewj fewjfbjewbf bfjqbfjb jkwebfk bewfkbewk bfkewbfjk fjkbewjkbf jkewbkjb ewjkfbejkwbf jkewbfjkbewjk bfewjkbf jkewbfjkbewjkfb jkewbfjkewbfjk bewjkfbjk ewbfjkb ewjkfb ejkwbfejkwbfjk bewfjkbewjkfb ejkwbfejkwbfjkewbfjkbewjkfbewjkbfjk bwefjk</p>
+			<form  action:"connection.php" method:"GET">
+				<label for="cpseudo">Pseudo: </label>
+				<input type="text" name="cpseudo" value =<?php if (!empty($_GET['cpseudo'])){ echo $_GET['cpseudo'];}?>><br>
+				<label for="cpasswd">MDP: </label>
+				<input type="password" name="cpasswd"><br>
+				<input  id="okey" type="submit" name="submit"  value="Let's Fire the web !">
 				<input  id="okey" type="hidden" name="submit"  value="OK">
 			</form>
 		</div>
