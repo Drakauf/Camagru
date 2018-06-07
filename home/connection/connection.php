@@ -4,16 +4,25 @@
 
 if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 {
-	if (!empty($_GET['ipseudo']) && !empty($_GET['imail']) && !empty($_GET['ipasswd']))
+	if (!empty($_GET['ipseudo']) && !empty($_GET['imail']) && !empty($_GET['ipasswd']) && !empty($_GET['icopass']))
 	{
-		if (isset($insfail))
-			unset($insfail);
+		if ($_GET['icopass'] != $_GET['ipasswd'])
+		{
+			$insfail = 2;
+		}
+		else 
+		{
+			include ('../../functions/co_ins.php');
+			$insfail = inscri($_GET['imail'], $_GET['ipseudo'], $_GET['ipasswd']); 
+			if ($insfail == -1)
+			{
+				unset($insfail);
+				$res = 1;
+			}
+		}
 	}
 	else
-	{
 		$insfail = 1;
-		$c = 0;
-	}
 }
 
 /* --------------- --------------- --------------- Form pour connection --------------- --------------- --------------- */
@@ -36,15 +45,28 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 		<?php /* --------------- --------------- --------------- Form pour inscription --------------- --------------- --------------- */ ?>
 		<div id="inscription">
 			<p id="intro">texte pour lefun fjhwevfhjewj fewjfbjewbf bfjqbfjb jkwebfk bewfkbewk bfkewbfjk fjkbewjkbf jkewbkjb ewjkfbejkwbf jkewbfjkbewjk bfewjkbf jkewbfjkbewjkfb jkewbfjkewbfjk bewjkfbjk ewbfjkb ewjkfb ejkwbfejkwbfjk bewfjkbewjkfb ejkwbfejkwbfjkewbfjkbewjkfbewjkbfjk bwefjk</p>
-			<form  action:"connection.php" method:"GET">
+		<?php /* --------------- div pour inscription error --------------- */ ?>
+			<div id="error">
+				<?php if (isset($res))
+				{echo $res;}?>
 				<?php if (isset($insfail) && $insfail == 1)
 				{echo "<p> Merci de remplir tout les champs</p>";}?>
+				<?php if (isset($insfail) && $insfail == 2)
+				{echo "<p> Mot de passe et mot de passe de confirmation sont differents... nidnsidnini sndi </p>";}?>
+				<?php if (isset($insfail) && $insfail == 3)
+				{echo "<p> Un compte a deja ete cree avec ce mail ...</p>";}?>
+				<?php if (isset($insfail) && $insfail == 4)
+				{echo "<p> Ce pseudo existe deja ...</p>";}?>
+			</div>
+			<form  action:"connection.php" method:"GET">
 				<label for="imail">Mail: </label>
 				<input type="text" name="imail" value =<?php if (!empty($_GET['mail'])){ echo $_GET['mail'];}?>> <br>
 				<label for="ipseudo">Pseudo: </label>
 				<input type="text" name="ipseudo" value =<?php if (!empty($_GET['pseudo'])){ echo $_GET['pseudo'];}?>><br>
-				<label for="imdp">MDP: </label>
-				<input type="password" name="ipasswd"<br>
+				<label for="ipasswd">Mot de passe: </label>
+				<input type="password" name="ipasswd"><br>
+				<label for="icopass">Confirmer mdp: </label>
+				<input type="password" name="icopass"><br>
 				<input  id="okey" type="submit" name="submit"  value="Ready to enter">
 				<input  id="okey" type="hidden" name="submit"  value="inscription">
 			</form>
@@ -52,11 +74,21 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 		<?php /* --------------- --------------- --------------- Form pour connection --------------- --------------- --------------- */ ?>
 		<div id="connection">
 			<p id="intro">texte pour lefun fjhwevfhjewj fewjfbjewbf bfjqbfjb jkwebfk bewfkbewk bfkewbfjk fjkbewjkbf jkewbkjb ewjkfbejkwbf jkewbfjkbewjk bfewjkbf jkewbfjkbewjkfb jkewbfjkewbfjk bewjkfbjk ewbfjkb ewjkfb ejkwbfejkwbfjk bewfjkbewjkfb ejkwbfejkwbfjkewbfjkbewjkfbewjkbfjk bwefjk</p>
+			<?php /* --------------- div pour inscription error --------------- */ ?>
+			<div id="error">
+				<?php if (isset($res) && $res == 1)
+				{echo "Vous venez de vous creer un compte, confirmez le mail avant de vous connecter ;)";
+				unset($res);}?>
+				<?php if (isset($cofail) && $cofail == 1)
+				{echo "<p> Ce Pseudo n'existe pas ou n'as pas ete verifie...</p>";}?>
+				<?php if (isset($cofail) && $cofail == 2)
+				{echo "<p> Mot de passe / Pseudo non correspondant ...</p>";}?>
+			</div>
 			<form  action:"connection.php" method:"GET">
 				<label for="cpseudo">Pseudo: </label>
 				<input type="text" name="cpseudo" value =<?php if (!empty($_GET['cpseudo'])){ echo $_GET['cpseudo'];}?>><br>
-				<label for="cpasswd">MDP: </label>
-				<input type="password" name="cpasswd"><br>
+				<label for="cmdp">MDP: </label>
+				<input type="password" name="cpasswd"<br>
 				<input  id="okey" type="submit" name="submit"  value="Let's Fire the web !">
 				<input  id="okey" type="hidden" name="submit"  value="OK">
 			</form>

@@ -86,3 +86,14 @@ label {
 	float: right;
 	width: 25%;
 }
+
+input {
+	margin-top: 1%;
+	width: 20%;
+}
+
+#error {
+	background-color: green;
+	margin-left: 25%;
+	width:35%;
+}

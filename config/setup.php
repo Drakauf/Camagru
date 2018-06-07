@@ -1,18 +1,6 @@
 <?php
 
-function dataco()
-{
-	include 'database.php';
-	try {
-		$connection = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	}
-	catch(PDOException $e)
-	{
-		echo "Connection failed";
-	}
-	return ($connection);
-}
+include '/var/www/html/functions/bdco.php';
 
 $connection = dataco();
 
@@ -21,7 +9,8 @@ $user = "CREATE TABLE IF NOT EXISTS User (
 	mail	VARCHAR(100) NOT NULL,
 	mdp		VARCHAR(1000) NOT NULL,
 	pseudo	VARCHAR(15) DEFAULT NULL,
-	comment INT	DEFAULT 1,
+	notif	INT DEFAULT 1,
+	active	INT DEFAULT 0,
 	PRIMARY KEY (user_id)
 )";
 
