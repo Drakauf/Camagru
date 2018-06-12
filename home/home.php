@@ -9,21 +9,97 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 ?>
 <html>
 <head>
-	<script type="text/javascript">
-		var log='<?php echo $loggued;?>'
-	</script>
+	<meta charset="utf-8" />
+	<title>Camagru</title>
+		<link rel="stylesheet" href="home.css">
+		<script type="text/javascript">
+			var log='<?php echo $loggued;?>'
+		</script>
 </head>
 	<body>
-		<div id="connected">
-			<p>Bonjour <?php echo $_SESSION['User'];?><br>
-			<form action:"home.php" method:"GET">
-				<input id="deco" type="submit" value="deconnection" name="submit">
-			</form>
+	<div id="bigdiv">
+		<div id="header">
+			<div id="connected">
+				<p>Bonjour <?php echo $_SESSION['User'];?><br>
+				<form action:"home.php" method:"GET">
+					<input id="deco" type="submit" value="deconnection" name="submit">
+				</form>
+			</div>
+			<div id="noconnect">
+				<p> Bonjour Invite</p>
+				<button id="cobutton">Connection | Inscription</button>
+			</div>
 		</div>
-		<div id="noconnect">
-			<p> Bonjour Invite</p>
-			<button id="cobutton">Connection | Inscription</button>
+		<div id="reglette">
+			<input id="taille" type="range" min="300" max="500" value="300" name="slider"/>
 		</div>
-		<script src="home.js"></script>
+		<div id="imgdisplay">
+<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+	<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+	<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+	<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+	<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+	<div class="imgbody">
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+		</div>
+	</div>
+	<script src="home.js"></script>
 	</body>
 </html>

@@ -1,6 +1,6 @@
-//-------------------------------------------------------------------\\
-// Div en fonction de connection                                     \\
-//-------------------------------------------------------------------\\
+/*********************************************************************/
+/* Header: Div a afficher                                            */
+/*********************************************************************/
 
 var codiv = document.getElementById("connected");
 var nocodiv = document.getElementById("noconnect");
@@ -16,13 +16,40 @@ else
 	nocodiv.style.display = "block";
 }
 
-//-------------------------------------------------------------------\\
-// Boutton de connection                                             \\
-//-------------------------------------------------------------------\\
+/*********************************************************************/
+/* Header : Redirection a connection/inscription                     */
+/*********************************************************************/
 
 var cobutton = document.getElementById("cobutton");
 cobutton.addEventListener("click", coredirect);
 function coredirect()
 {
 	location.href = "connection/connection.php";
+}
+
+/*********************************************************************/
+/* Reglette: Reglette                                                */
+/*********************************************************************/
+/*
+var ranger = document.getElementById('taille');
+
+ranger.onchange = function(){
+var image =  document.getElementsByClass('image');
+	    image[0].width = ranger.value;
+		    image[0].height = ranger.value;
+}
+*/
+var ranger = document.getElementById('taille');
+var image =  document.getElementsByClassName('image');
+
+
+ranger.onchange = function(){
+	var i;
+	i = 0;
+	while (i < image.length)
+	{
+	    image[i].width =ranger.value;
+		    image[i].height = ranger.value;
+			i++;
+	}
 }

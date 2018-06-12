@@ -38,7 +38,7 @@ function affichdiv()
 }
 
 /*********************************************************************/
-/* Div a afficher                                                    */
+/* Retourner a l'acceuit                                             */
 /*********************************************************************/
 
 var ra = document.getElementById("retour");
