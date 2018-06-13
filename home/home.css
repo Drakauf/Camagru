@@ -1,7 +1,7 @@
 #bigdiv {
 	display: flex;
-	flex-wrap: wrap;
 	flex-direction: column;
+	flex-wrap: wrap;
 	background-color: red;
 	margin-right: 12.5vw;
 	margin-left: 12.5vw;
@@ -32,6 +32,7 @@
 	width: 33%;
 	height: 5%;
 	float: right;
+	margin-bottom: 0px;
 }
 
 #noconnect {
@@ -45,6 +46,7 @@
 	width: 33%;
 	height: 5%;
 	float: right;
+	margin-bottom: 0px;
 }
 /*********************************************************************/
 /* Reglette                                                          */
@@ -62,9 +64,33 @@
 	height: 100%;
 }
 
+/*********************************************************************/
+/* Connected menu                                                    */
+/*********************************************************************/
+
+#body {
+	background-color: lightblue;
+	width: 100%;
+	min-height: 93%;
+	display: flex;
+}
+
+#comenu {
+	background-color: blue;
+	display: inline-block;
+	width: 25%;
+	min-height: 93%;
+}
+
+/*********************************************************************/
+/* Image display                                                     */
+/*********************************************************************/
+
+
 #imgdisplay{
 	text-align: center;
 	width:100%;
+	display: inline-block;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	min-height: 93%;
@@ -80,7 +106,8 @@
 	min-height: 10%;
 	max-height: 50%;
 	background-color: pink;
-	margin-top: 1%;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
 }
 
 .image {

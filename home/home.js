@@ -30,15 +30,7 @@ function coredirect()
 /*********************************************************************/
 /* Reglette: Reglette                                                */
 /*********************************************************************/
-/*
-var ranger = document.getElementById('taille');
 
-ranger.onchange = function(){
-var image =  document.getElementsByClass('image');
-	    image[0].width = ranger.value;
-		    image[0].height = ranger.value;
-}
-*/
 var ranger = document.getElementById('taille');
 var image =  document.getElementsByClassName('image');
 
@@ -52,4 +44,19 @@ ranger.onchange = function(){
 		    image[i].height = ranger.value;
 			i++;
 	}
+}
+
+/*********************************************************************/
+/* Body: afficher le menu une fois connecter                         */
+/*********************************************************************/
+
+var comenu = document.getElementById("comenu");
+
+if (log)
+{
+	comenu.style.display = "block"
+}
+else
+{
+	comenu.style.display = "none"
 }

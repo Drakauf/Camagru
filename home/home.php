@@ -33,6 +33,12 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 		<div id="reglette">
 			<input id="taille" type="range" min="300" max="500" value="300" name="slider"/>
 		</div>
+		<div id="body">
+
+<div id="comenu">
+			<h1 align="center">Menu</h1>
+		</div>
+
 		<div id="imgdisplay">
 <div class="imgbody">
 				<img class="image" src="http://google.com/images/logo.png"/>
@@ -98,6 +104,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 				<img class="image" src="http://google.com/images/logo.png"/>
 <p>text</p>
 			</div>
+		</div>
 		</div>
 	</div>
 	<script src="home.js"></script>
