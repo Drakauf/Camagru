@@ -14,10 +14,32 @@ function inscri($mail, $pseudo, $pass){
 	$res = $sqlmail->rowCount();
 	if ($res != 0)
 		return (4);
+	$cle = md5(microtime(TRUE)*10);
 	$passwd = hash('sha512', $pass);
-	$save = $db->prepare('INSERT INTO User (mail, mdp, pseudo) VALUES( ?, ?, ?);');
-	$save->execute([$mail, $passwd, htmlspecialchars($pseudo)]);
-	return (-1);
+	$save = $db->prepare('INSERT INTO User (mail, mdp, pseudo, cle) VALUES( ?, ?, ?, ?);');
+	$save->execute([$mail, $passwd, htmlspecialchars($pseudo), $cle]);
+	echo ($mail);
+	echo ($pseudo);
+	ft_mail($mail, $pseudo, $cle);
+return (-1);
+}
+
+
+function ft_mail($mail, $pseudo, $cle)
+{
+	$sujet = "Activer votre compte";
+	$entete = "From: shtheva@camagram.com";
+	$message = "Bienvenue sur VotreSite,
+		 
+		Pour activer votre compte, veuillez cliquer sur le lien ci dessous
+		ou copier/coller dans votre navigateur internet.
+		 
+		http://localhost:8008/home/connection/activation.php?log=$pseudo&cle=$cle
+ 
+	---------------
+		Ceci est un mail automatique, Merci de ne pas y répondre.";
+if (mail($mail, $sujet, $message, $entete) == TRUE)
+	echo ("\nOk\n");
 }
 
 function conect($pseudo, $pass){
