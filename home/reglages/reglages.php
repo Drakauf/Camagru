@@ -19,7 +19,20 @@ if (isset($_GET['notif']))
 		$sqlnotif->execute([$_SESSION['User']]);
 		$notifsucces = 0;
 	}
+	unset($_GET);
 }
+
+if (isset($_GET['passwd']))
+{
+	$hashmdp = hash('sha512', $_GET['mdp']);
+	$oldmdp = hash('sha512', $_GET['mdp']);
+	$hashcmdp = hash('sha512', $_GET['cmdp']);
+	if ($hashmdp != $hashcmdp)
+		$mdpsucces = 1;
+	else if ($oldmdp != $table['mdp'])
+		$mdpsucces = 2;
+}
+
 ?>
 
 <html>
@@ -28,16 +41,48 @@ if (isset($_GET['notif']))
 		<title> Camagru - Reglages</title>
 	</head>
 	<body>
-<?php if (isset($notifsucces))
+<?php 
+
+if (isset($notifsucces))
 { 
 	if ($notifsucces == 1) 
 	{ 
-		echo "<p> vous receverez des notification quand vos photo seront commente</p>";} if ($notifsucces == 0) { echo "<p> vous ne receverez plus de notification si une de vos photo est commente </p>";}}?>
+		echo "<p> vous receverez des notification quand vos photo seront commente</p>";
+	}
+	if ($notifsucces == 0)
+	{
+		echo "<p> vous ne receverez plus de notification si une de vos photo est commente </p>";
+	}
+	unset($notiftsucces);
+}
+
+if (isset($mdpsucces))
+{
+	if ($mdpsucces == 1)
+	{
+		echo "<p> Le mot de passe et le mot de passe de confirmation sont differents </p>";
+	}
+	if ($mdpsucces == 2)
+	{
+		echo "<p> fefewfwe </p>";
+	}
+}
+?>
+
 	<form action:"reglages.php" method:"GET">
-		<select name="notification">
+	<label> Notifications : </label>
+	<select name="notification">
 			<option value="oui">Oui</option>
 			<option value="non">Non</option>
 		</select>
 		<input type="submit" name="notif" value="modifier">
 	</form>
+	<form action:"reglages.php" method:"GET">
+		<label> Modifier le mot de passe </label></br>
+		<input type="password" name="oldmdp"></br>
+		<input type="password" name="mdp"></br>
+		<input type="password" name="cmdp"></br>
+		<input type="submit" name="passwd" value="modifier">
+	</form>
+	<form>
 	</body>
