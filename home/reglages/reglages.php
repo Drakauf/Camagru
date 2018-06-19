@@ -25,12 +25,27 @@ if (isset($_GET['notif']))
 if (isset($_GET['passwd']))
 {
 	$hashmdp = hash('sha512', $_GET['mdp']);
-	$oldmdp = hash('sha512', $_GET['mdp']);
+	$oldmdp = hash('sha512', $_GET['oldmdp']);
 	$hashcmdp = hash('sha512', $_GET['cmdp']);
+	echo("old : ");
+	echo($oldmdp);
+	echo("\n");
+	echo("tab :");
+	echo($table['mdp']);
+	echo("\n");
+	echo("new :");
+	echo($hashmdp);
 	if ($hashmdp != $hashcmdp)
 		$mdpsucces = 1;
 	else if ($oldmdp != $table['mdp'])
 		$mdpsucces = 2;
+	else
+	{
+		$sqlmdp = $db->prepare('UPDATE User SET mdp=? WHERE pseudo LIKE ?');
+		$sqlmdp->execute([$hashmdp, htmlspecialchars($_SESSION['User'])]);
+		echo $_SESSION['User'];
+	}
+	unset($_GET);
 }
 
 ?>
@@ -64,8 +79,9 @@ if (isset($mdpsucces))
 	}
 	if ($mdpsucces == 2)
 	{
-		echo "<p> fefewfwe </p>";
+		echo "<p> L'ancien mot de passe ne correspond pas.</p>";
 	}
+	unset($mdpsucces);
 }
 ?>
 

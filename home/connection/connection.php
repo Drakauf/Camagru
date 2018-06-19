@@ -41,8 +41,10 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'connection')
 		include ('../../functions/co_ins.php');
 		$cofail = conect($_GET['cpseudo'], $_GET['cpasswd']);
 		if ($cofail == 0)
+		{
 			unset ($cofail);
-		header("location: ../../index.php");
+			header("location: ../../index.php");
+		}
 	}
 	else
 		$cofail = 1;
