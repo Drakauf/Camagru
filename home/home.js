@@ -60,3 +60,14 @@ else
 {
 	comenu.style.display = "none"
 }
+
+/*********************************************************************/
+/* Menu: Aller aux reglages                                          */
+/*********************************************************************/
+
+var regla = document.getElementById("settings");
+regla.addEventListener("click", regladirect);
+function regladirect()
+{
+	location.href = "reglages/reglages.php";
+}

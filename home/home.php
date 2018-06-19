@@ -8,47 +8,51 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 }
 ?>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<title>Camagru</title>
+	<head>
+		<meta charset="utf-8" />
+		<title>Camagru</title>
 		<link rel="stylesheet" href="home.css">
 		<script type="text/javascript">
 			var log='<?php echo $loggued;?>'
 		</script>
-</head>
+	</head>
 	<body>
-	<div id="bigdiv">
-		<div id="header">
-			<div id="connected">
-				<p>Bonjour <?php echo $_SESSION['User'];?><br>
-				<form action:"home.php" method:"GET">
-					<input id="deco" type="submit" value="deconnection" name="submit">
-				</form>
+		<div id="bigdiv">
+			<div id="header">
+				<div id="connected">
+					<p>Bonjour <?php echo $_SESSION['User'];?><br>
+					<form action:"home.php" method:"GET">
+						<input id="deco" type="submit" value="deconnection" name="submit">
+					</form>
+				</div>
+				<div id="noconnect">
+					<p> Bonjour Invite</p>
+					<button id="cobutton">Connection | Inscription</button>
+				</div>
 			</div>
-			<div id="noconnect">
-				<p> Bonjour Invite</p>
-				<button id="cobutton">Connection | Inscription</button>
+			<div id="reglette">
+				<input id="taille" type="range" min="300" max="500" value="300" name="slider"/>
 			</div>
-		</div>
-		<div id="reglette">
-			<input id="taille" type="range" min="300" max="500" value="300" name="slider"/>
-		</div>
-		<div id="body">
-
-<div id="comenu">
-			<h1 align="center">Menu</h1>
-		</div>
-
-		<div id="imgdisplay">
-<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
+<?php /* --------------- --------------- --------------- Images / Menu --------------- --------------- --------------- */ ?>
+			<div id="body">
+<?php /* --------------- Menu --------------- */ ?>
+				<div id="comenu">
+					<h1 align="center">Menu</h1>
+					<button type="text" id="acceuil">Acceuil</button>
+					<button type="text" id="myphotos">Mes Photos</button>
+					<button type="text" id="settings">Mes Reglages</button>
+				</div>
+<?php /* --------------- Images --------------- */ ?>
+			<div id="imgdisplay">
+				<div class="imgbody">
+					<img class="image" src="http://google.com/images/logo.png"/>
 <p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
+				</div>
+				<div class="imgbody"> 
+					<img class="image" src="http://google.com/images/logo.png"/>
 <p>text</p>
-			</div>
-	<div class="imgbody">
+				</div>
+		<div class="imgbody">
 				<img class="image" src="http://google.com/images/logo.png"/>
 <p>text</p>
 			</div>
