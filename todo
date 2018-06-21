@@ -19,7 +19,8 @@ forgot password.
 
 *** Taking Image. ***
 
-Taking image (page/div ?)
+Taking image page
+filter : array_diff(scandir... '.','..');
 
 *** Image ***
 

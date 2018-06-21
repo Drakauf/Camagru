@@ -65,6 +65,17 @@ else
 /* Menu: Aller aux reglages                                          */
 /*********************************************************************/
 
+var camera = document.getElementById("camera");
+camera.addEventListener("click", camdirect);
+function camdirect()
+{
+	location.href = "camera/camera.php";
+}
+
+/*********************************************************************/
+/* Menu: Aller aux reglages                                          */
+/*********************************************************************/
+
 var regla = document.getElementById("settings");
 regla.addEventListener("click", regladirect);
 function regladirect()

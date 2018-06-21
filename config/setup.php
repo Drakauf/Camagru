@@ -34,11 +34,19 @@ $comlik = "CREATE TABLE IF NOT EXISTS Comlik (
 	FOREIGN KEY (user_id)	REFERENCES User(user_id)
 )";
 
+$filter = "CREATE TABLE IF NOT EXISTS Filters (
+	filter_id	INT NOT NULL AUTO_INCREMENT,
+	name		VARCHAR(10000000),
+	path		VARCHAR(10000000),
+	PRIMARY KEY (filter_id)
+	)";
+	
 $connection->exec('CREATE DATABASE IF NOT EXISTS shanbase;
 			USE shanbase;');
 $connection->exec($user);
 $connection->exec($image);
 $connection->exec($comlik);
+$connection->exec($filter);
 
 header("location: ../home/home.php");
 

@@ -1,8 +1,8 @@
 <?php
 
 include '/var/www/html/functions/bdco.php';
-$dossier = './filtres';
-$files = array_diff(scandir($dossier), array('..', '.','.DS_Store', 'filtres.php', '.filtres.php.swp'));
+$dossier = './filtres/';
+$files = array_diff(scandir($dossier), array('..', '.','.DS_Store', 'filtres.php', '.filtres.php.swp', 'filtres.css', '.filtres.css.swp', 'filtres.js', '.filtres.js.swp'));
 
 $db = dataco();
 $sqlcheck = $db->prepare('SELECT * FROM Filters');
@@ -35,7 +35,15 @@ if ($sqlcheck->rowCount())
 		<link rel="stylesheet" href="camera.css">
 	</head>
 	<body>
-		<div id="camera">
+<div id="camera">
+		<?php foreach ($filtres as $filter)
+{
+	$img_p = $filter['path'];
+	$img_n = $filter['name'];
+	echo "<img src=$img_p alt=$img_n class='toshow'>";
+}?>
+
+<video id="video"></video>
 		</div>
 		<div id="filtres">
 	<?php foreach ($filtres as $filter)
@@ -45,6 +53,12 @@ if ($sqlcheck->rowCount())
 	echo "<img src=$img_p alt=$img_n class='filtre'>";
 }?>
 		</div>
-	<script src="home.js"></script>
+<button id="startbutton">Prendre une photo</button>
+<canvas id="canvas"></canvas>
+<img src="http://placekitten.com/g/320/261" id="photo" alt="photo">
+
+
+	<script src="filtres.js"></script>
+	<script src="camera.js"></script>
 	</body>
 </html>
