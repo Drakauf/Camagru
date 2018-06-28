@@ -53,7 +53,7 @@ if ($sqlcheck->rowCount())
 	echo "<img src=$img_p alt=$img_n class='filtre'>";
 }?>
 		</div>
-<button id="startbutton">Prendre une photo</button>
+ <button id="startbutton">Prendre une photo</button>
 <canvas id="canvas"></canvas>
 <img src="http://placekitten.com/g/320/261" id="photo" alt="photo">
 

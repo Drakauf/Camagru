@@ -24,28 +24,42 @@ if (isset($_GET['notif']))
 
 if (isset($_GET['passwd']))
 {
-	$hashmdp = hash('sha512', $_GET['mdp']);
-	$oldmdp = hash('sha512', $_GET['oldmdp']);
-	$hashcmdp = hash('sha512', $_GET['cmdp']);
-	echo("old : ");
-	echo($oldmdp);
-	echo("\n");
-	echo("tab :");
-	echo($table['mdp']);
-	echo("\n");
-	echo("new :");
-	echo($hashmdp);
-	if ($hashmdp != $hashcmdp)
-		$mdpsucces = 1;
-	else if ($oldmdp != $table['mdp'])
-		$mdpsucces = 2;
-	else
+	if (isset($_GET['mdp'], $_GET['oldmdp'], $_GET['cmdp']))
 	{
-		$sqlmdp = $db->prepare('UPDATE User SET mdp=? WHERE pseudo LIKE ?');
-		$sqlmdp->execute([$hashmdp, htmlspecialchars($_SESSION['User'])]);
-		echo $_SESSION['User'];
+		$hashmdp = hash('sha512', $_GET['mdp']);
+		$oldmdp = hash('sha512', $_GET['oldmdp']);
+		$hashcmdp = hash('sha512', $_GET['cmdp']);
+		if ($hashmdp != $hashcmdp)
+			$mdpsucces = 1;
+		else if ($oldmdp != $table['mdp'])
+			$mdpsucces = 2;
+		else
+		{
+			$sqlmdp = $db->prepare('UPDATE User SET mdp=? WHERE pseudo LIKE ?');
+			$sqlmdp->execute([$hashmdp, htmlspecialchars($_SESSION['User'])]);
+		}
+		unset($_GET);
 	}
-	unset($_GET);
+	else
+		$mdpsucces = 0;
+}
+
+if (isset($_GET['modifmail']))
+{
+	if (isset($_GET["oldmail"], $_GET['pseudo'], $_GET['newmail']))
+	{
+		if ($table['mail'] != $_GET['oldmail'])
+			$mailsucces = 1;
+		else if (!preg_match("#^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$#", $_GET['newmail']))
+			$mailsucces = 2;
+		else
+		{
+			$sqlmail = $db->prepare('UPDATE User SET mail=? WHERE pseudo LIKE ?');
+			$sqlmail->execute([$_GET['newmail'], $_SESSION['User']);
+		}
+	}
+	else
+		$mailsuccess = 0;
 }
 
 ?>
@@ -73,6 +87,10 @@ if (isset($notifsucces))
 
 if (isset($mdpsucces))
 {
+	if ($mdpsucces == 0)
+	{
+		echo "<p> Veuillez remplir tout les champs </p>";
+	}
 	if ($mdpsucces == 1)
 	{
 		echo "<p> Le mot de passe et le mot de passe de confirmation sont differents </p>";
@@ -82,6 +100,21 @@ if (isset($mdpsucces))
 		echo "<p> L'ancien mot de passe ne correspond pas.</p>";
 	}
 	unset($mdpsucces);
+}
+if (isset($mailsucces))
+{
+	if ($mailsucces == 0)
+	{
+		echo "<p> Veuillez remplir tout les champs </p>";
+	}
+	if ($mailsucces == 1)
+	{
+		echo "<p> Les information donnees sont erronees</p>";
+	}
+	if ($mailsucces == 2)
+	{
+		echo "<p>Addresse mail non valide </p>";
+	}
 }
 ?>
 
@@ -99,6 +132,13 @@ if (isset($mdpsucces))
 		<input type="password" name="mdp"></br>
 		<input type="password" name="cmdp"></br>
 		<input type="submit" name="passwd" value="modifier">
+	</form>
+	<form action:"reglages.php" method:"GET">
+	<label> Modifier l'addresse mail </label>
+	<input type="text" name="oldmail"></br>
+	<input type="text" name="pseudo"></br>
+	<input type="text" name="newmail"</br>
+	<input type="submit" name="modifmail" value="modifier">
 	</form>
 	<form>
 	</body>
