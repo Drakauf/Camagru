@@ -55,9 +55,6 @@ if ($sqlcheck->rowCount())
 		</div>
  <button id="startbutton">Prendre une photo</button>
 <canvas id="canvas"></canvas>
-<img src="http://placekitten.com/g/320/261" id="photo" alt="photo">
-
-
 	<script src="filtres.js"></script>
 	<script src="camera.js"></script>
 	</body>

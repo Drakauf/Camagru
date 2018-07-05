@@ -20,7 +20,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 		else 
 		{
 			include ('../../functions/co_ins.php');
-			$insfail = inscri($_GET['imail'], $_GET['ipseudo'], $_GET['ipasswd']); 
+			$insfail = inscri($_GET['imail'], $_GET['ipseudo'], $_GET['ipasswd']);
 			if ($insfail == -1)
 			{
 				unset($insfail);
