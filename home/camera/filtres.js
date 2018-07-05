@@ -5,6 +5,8 @@
 var filtre = document.getElementsByClassName("filtre");
 var toshow = document.getElementsByClassName("toshow");
 
+filtre[0].style.display = 'block';
+
 onload();
 
 function onload()

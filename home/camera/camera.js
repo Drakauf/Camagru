@@ -1,11 +1,12 @@
 (function() {
 
-	var streaming = false,
-	video        = document.querySelector('#video'),
-	cover        = document.querySelector('#cover'),
-	canvas       = document.querySelector('#canvas'),
-	photo        = document.querySelector('#photo'),
-	startbutton  = document.querySelector('#startbutton'),
+	var streaming	= false,
+	video			= document.querySelector('#video'),
+	cover			= document.querySelector('#cover'),
+	canvas			= document.querySelector('#canvas'),
+	photo			= document.querySelector('#photo'),
+	startbutton 	= document.querySelector('#startbutton'),
+	filtre			= document.getElementsByClassName("toshow");
 	width = 680,
 	height = 480;
 
@@ -41,18 +42,39 @@
 			streaming = true;
 		}
 	}, false);
+	function setfilter(data) {
+		var i;
+		i = 0;
+		while (i < filtre.length){
+			if (filtre[i].style.display === 'block')
+				var fil = filtre[i].src;
+			i++;
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'showpic.php');
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+			if (xhr.status === 200 && xhr.responseText !== "done") {
+				alert('Something went wrong.' + xhr.responseText);
+			}
+			else if (xhr.status !== 200) {
+				alert('Request failed.  Returned status of ' + xhr.status);
+			}
+		};
+		xhr.send('filtre='+fil+'&data='+data);
+	}
 	function takepicture() {
-		    canvas.width = width;
-			    canvas.height = height;
-				    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-					canvas.style.display = 'block';
-//					    var data = canvas.toDataURL('image/png');
-			//			    photo.setAttribute('src', data);
-							  }
+		canvas.width = width;
+		canvas.height = height;
+		canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+		var data = canvas.toDataURL();
+		setfilter(data);
+	}
 
-	  startbutton.addEventListener('click', function(ev){
-		        takepicture();
-				    ev.preventDefault();
-					  }, false);
+	startbutton.addEventListener('click', function(ev){
+		takepicture();
+		ev.preventDefault();
+		canvas.style.display = 'block';
+	}, false);
 
 })();
