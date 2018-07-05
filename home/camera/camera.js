@@ -6,8 +6,8 @@
 	canvas       = document.querySelector('#canvas'),
 	photo        = document.querySelector('#photo'),
 	startbutton  = document.querySelector('#startbutton'),
-	width = 800,
-	height = 800;
+	width = 680,
+	height = 480;
 
 	navigator.getMedia = ( navigator.getUserMedia ||
 			navigator.webkitGetUserMedia ||
@@ -45,8 +45,9 @@
 		    canvas.width = width;
 			    canvas.height = height;
 				    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-					    var data = canvas.toDataURL('image/png');
-						    photo.setAttribute('src', data);
+					canvas.style.display = 'block';
+//					    var data = canvas.toDataURL('image/png');
+			//			    photo.setAttribute('src', data);
 							  }
 
 	  startbutton.addEventListener('click', function(ev){
