@@ -4,24 +4,25 @@ include '/var/www/html/functions/bdco.php';
 
 function inscri($mail, $pseudo, $pass){
 	$db = dataco();
+
+	$sqlmail = $db->prepare('SELECT * FROM User WHERE pseudo LIKE ?');
+	$sqlmail->execute([htmlspecialchars($pseudo)]);
+	$res = $sqlmail->rowCount();
+	if ($res != 0)
+		return (4);
+	
 	$sqlmail = $db->prepare('SELECT * FROM User WHERE mail LIKE ?');
 	$sqlmail->execute([$mail]);
 	$res = $sqlmail->rowCount();
 	if ($res != 0)
 		return (3);
-	$sqlmail = $db->prepare('SELECT * FROM User WHERE mail LIKE ?');
-	$sqlmail->execute([$pseudo]);
-	$res = $sqlmail->rowCount();
-	if ($res != 0)
-		return (4);
+
 	$cle = md5(microtime(TRUE)*10);
 	$passwd = hash('sha512', $pass);
 	$save = $db->prepare('INSERT INTO User (mail, mdp, pseudo, cle) VALUES( ?, ?, ?, ?);');
 	$save->execute([$mail, $passwd, htmlspecialchars($pseudo), $cle]);
-	echo ($mail);
-	echo ($pseudo);
 	ft_mail($mail, $pseudo, $cle);
-return (-1);
+	return (-1);
 }
 
 
