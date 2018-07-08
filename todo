@@ -11,7 +11,6 @@ phote page/div ?
 (most liked photos slideshows)
 
 
-
 *** Inscription/connection ***
 
 secure password,
@@ -20,10 +19,8 @@ change mail (send mail to 2 mails)
 *** Taking Image. ***
 
 *** Taking image page ***
-filter : array_diff(scandir... '.','..');
-go to new .php to add filter and  create image in base64
-show the created image
--possibility to go back to camera / home
+Add navigation + deconection (header)
+show thaken photos miniature
 
 
 *** Image ***
@@ -31,3 +28,7 @@ show the created image
 Add total Likes,
 f: count total likes, and add it to the table, (to use after each like/dislike).
 
+*** My photos ***
+show images with name (list / icone);
+Possibility to delete photo
+Possibility to change name

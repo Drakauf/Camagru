@@ -20,7 +20,7 @@ $image = "CREATE TABLE IF NOT EXISTS Image (
 	image_src	VARCHAR(1200000),
 	image_name	VARCHAR(25),
 	user_id		INT NOT NULL,
-	date		VARCHAR(50);,
+	date		VARCHAR(50),
 	PRIMARY KEY (image_id),
 	FOREIGN KEY (user_id) REFERENCES User(user_id)
 )";	

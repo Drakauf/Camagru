@@ -55,7 +55,7 @@ if (isset($_GET['modifmail']))
 		else
 		{
 			$sqlmail = $db->prepare('UPDATE User SET mail=? WHERE pseudo LIKE ?');
-			$sqlmail->execute([$_GET['newmail'], $_SESSION['User']);
+			$sqlmail->execute([$_GET['newmail'], $_SESSION['User']]);
 		}
 	}
 	else

@@ -39,8 +39,7 @@ function ft_mail($mail, $pseudo, $cle)
  
 	---------------
 		Ceci est un mail automatique, Merci de ne pas y répondre.";
-if (mail($mail, $sujet, $message, $entete) == TRUE)
-	echo ("\nOk\n");
+	mail($mail, $sujet, $message, $entete);
 }
 
 function conect($pseudo, $pass){

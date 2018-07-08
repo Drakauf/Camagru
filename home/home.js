@@ -62,7 +62,7 @@ else
 }
 
 /*********************************************************************/
-/* Menu: Aller aux reglages                                          */
+/* Menu: Aller page camera                                           */
 /*********************************************************************/
 
 var camera = document.getElementById("camera");
@@ -81,4 +81,15 @@ regla.addEventListener("click", regladirect);
 function regladirect()
 {
 	location.href = "reglages/reglages.php";
+}
+
+/*********************************************************************/
+/* Menu: Aller a mes photos                                          */
+/*********************************************************************/
+
+var regla = document.getElementById("myphotos");
+regla.addEventListener("click", myphotodirect);
+function myphotodirect()
+{
+	location.href = "photohandle/myphotos.php";
 }
