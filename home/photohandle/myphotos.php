@@ -22,9 +22,11 @@ function mpsredirect($id)
 <?php
 foreach ($imagestab as $images)
 {
-	echo '<div id="img_name"><div id="imgdiv"><img src="data:image/png;base64,'.$images['image_src'].'" onclick="document.write('."<?php mpsredirect(".$images['image_id'].");?>)".'"/></div><p>'.$images['image_name'].'</p></div>';
-
+/*	echo '<div id="img_name"><div id="imgdiv"><img src="data:image/png;base64,'.$images['image_src'].'" onclick="document.write('."<?php mpsredirect(".$images['image_id'].");?>)".'"/></div><p>'.$images['image_name'].'</p></div>';
+ */
+	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><p>'.$images['image_name'].'</p></div>';
 }
 ?>
+	<script src="myphotos.js"></script>
 </body>
 </html>
