@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '/var/www/html/functions/bdco.php';
 $dossier = './filtres/';
 $files = array_diff(scandir($dossier), array('..', '.','.DS_Store', 'filtres.php', '.filtres.php.swp', 'filtres.css', '.filtres.css.swp', 'filtres.js', '.filtres.js.swp'));

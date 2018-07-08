@@ -54,11 +54,20 @@
 		xhr.open('POST', 'showpic.php');
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
-			if (xhr.status === 200 && xhr.responseText !== "done") {
-				alert('Something went wrong.' + xhr.responseText);
+			if (xhr.status === 200 && xhr.responseText == "done") {
+			}
+			else if (xhr.status === 200 && xhr.responseText == "nofiltre") {
+				alert("can't take a photo without a filter");
+			}
+			else if (xhr.status === 200 && xhr.responseText == "nodata") {
+				alert("take/choose a photo");
 			}
 			else if (xhr.status !== 200) {
 				alert('Request failed.  Returned status of ' + xhr.status);
+			}
+			else if (xhr.status === 200)
+			{
+				alert(xhr.responseText);
 			}
 		};
 		xhr.send('filtre='+fil+'&data='+data);
@@ -66,15 +75,16 @@
 	function takepicture() {
 		canvas.width = width;
 		canvas.height = height;
+		canvas.style.display = 'block';
 		canvas.getContext('2d').drawImage(video, 0, 0, width, height);
 		var data = canvas.toDataURL();
-		setfilter(data);
+		var tosend=data;
+		setfilter(tosend);
 	}
 
 	startbutton.addEventListener('click', function(ev){
 		takepicture();
 		ev.preventDefault();
-		canvas.style.display = 'block';
 	}, false);
 
 })();

@@ -17,8 +17,10 @@ $user = "CREATE TABLE IF NOT EXISTS User (
 
 $image = "CREATE TABLE IF NOT EXISTS Image (
 	image_id	INT NOT NULL AUTO_INCREMENT,
+	image_src	VARCHAR(1200000),
+	image_name	VARCHAR(25),
 	user_id		INT NOT NULL,
-	date		DATE NOT NULL,
+	date		VARCHAR(50);,
 	PRIMARY KEY (image_id),
 	FOREIGN KEY (user_id) REFERENCES User(user_id)
 )";	

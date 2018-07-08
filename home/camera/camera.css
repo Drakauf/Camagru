@@ -3,7 +3,7 @@
 	margin-right:auto;
 	max-width:680px;
 	max-height:480px;
-	background-color:blue;
+	background-color: red;
 	position: relative;
 }
 
@@ -36,5 +36,5 @@
 }
 
 #canvas {
-	display: none;
+	position: absolute;
 }
