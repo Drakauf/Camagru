@@ -27,7 +27,7 @@ function redirect(k)
 }
 
 /***************************************************************************************/
-/*boutons
+/*delete
 /***************************************************************************************/
 
 var boutons = document.getElementsByClassName("bouton");
@@ -76,4 +76,38 @@ function deldiv(i)
 		}
 	};
 	xhr.send('id='+boutons[i].id);
+}
+
+/***************************************************************************************/
+/*change name
+/***************************************************************************************/
+
+var nwname = document.getElementsByClassName("imgname");
+var chname = document.getElementsByClassName("cname");
+
+
+nameload();
+
+function nameload()
+{
+	var i;
+
+	i = 0;
+	while (i < chname.length)
+	{
+		addnameevent(i);
+		i++;
+	}
+}
+
+function addnameevent(i)
+{
+	chname[i].addEventListener("click", function(){
+		newname(i);
+	});
+}
+
+function newname(i)
+{
+	nwname[i].value;
 }

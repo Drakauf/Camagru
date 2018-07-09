@@ -25,7 +25,7 @@ if (count($imagestab) == 0)
 	echo "you have no images yet";
 foreach ($imagestab as $images)
 {
-	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><p>'.$images['image_name'].'</p> <button class="bouton" id="'.$images['image_id'].'">Delete photo</button> </div>';
+	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><input type="text" class="imgname" value="'.$images['image_name'].'"><button class="cname"> change name</button></br></br><button class="bouton">Delete photo</button> </div>';
 }
 ?>
 </div>
