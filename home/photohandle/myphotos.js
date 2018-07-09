@@ -56,7 +56,9 @@ function addboutevent(i)
 
 function deldiv(i)
 {
-//	imgdiv[i].style.display = "none";
+	if (confirm("Save data?"))
+	{
+	imgdiv[i].style.display = "none";
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'delphoto.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -67,6 +69,9 @@ function deldiv(i)
 		else if (xhr.status === 200 && xhr.responseText == "nophoto") {
 			alert("This photo doesn't exist (maybe already deleted)");
 		}
+		else if (xhr.status === 200 && xhr.responseText == "prob"){
+			alert("un probleme est survenu");
+		}
 		else if (xhr.status !== 200) {
 			alert('Request failed.  Returned status of ' + xhr.status);
 		}
@@ -75,7 +80,8 @@ function deldiv(i)
 			alert(xhr.responseText);
 		}
 	};
-	xhr.send('id='+boutons[i].id);
+	xhr.send('id='+images[i].id);
+	}
 }
 
 /***************************************************************************************/
@@ -109,5 +115,26 @@ function addnameevent(i)
 
 function newname(i)
 {
-	nwname[i].value;
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'modifname.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.onload = function() {
+		if (xhr.status === 200 && xhr.responseText == "done"){
+			alert ("le nom viens d'etre modifie");
+		}
+		else if (xhr.status === 200 && xhr.responseText == "toolong"){
+			alert("le nom est trop (25 caractere max)");
+		}
+		else if (xhr.status === 200 && xhr.responseText == "prob"){
+			alert("un probleme est survenu");
+		}
+		else if (xhr.status !== 200){
+			alert('Request failed.  Returned status of ' + xhr.status);
+		}
+		else if (xhr.status === 200)
+		{
+			alert(xhr.responseText);
+		}
+	};
+	xhr.send('id='+images[i].id+'&name='+nwname[i].value);
 }
