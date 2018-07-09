@@ -1,12 +1,22 @@
+#allphotos {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 #img_name {
 	width: 300px;
 	height: 400px;
 	text-align: center;
+	border: 15px Solid Black;
+	margin-left: 2.5vw;
+	margin-right: 2.5vw;
+	margin-top: 2.5vh;
 }
 
 #imgdiv {
 	width: 300px;
 	height: 300px;
+	border-bottom: 15px Solid Black;
 }
 
 #imgdiv img {

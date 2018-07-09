@@ -54,11 +54,11 @@ var comenu = document.getElementById("comenu");
 
 if (log)
 {
-	comenu.style.display = "block"
+	comenu.style.display = "block";
 }
 else
 {
-	comenu.style.display = "none"
+	comenu.style.display = "none";
 }
 
 /*********************************************************************/

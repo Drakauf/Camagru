@@ -19,14 +19,16 @@ function mpsredirect($id)
 		<link rel="stylesheet" href="myphotos.css">
 </head>
 <body>
+<div id="allphotos">
 <?php
+if (count($imagestab) == 0)
+	echo "you have no images yet";
 foreach ($imagestab as $images)
 {
-/*	echo '<div id="img_name"><div id="imgdiv"><img src="data:image/png;base64,'.$images['image_src'].'" onclick="document.write('."<?php mpsredirect(".$images['image_id'].");?>)".'"/></div><p>'.$images['image_name'].'</p></div>';
- */
-	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><p>'.$images['image_name'].'</p></div>';
+	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><p>'.$images['image_name'].'</p> <button class="bouton" id="'.$images['image_id'].'">Delete photo</button> </div>';
 }
 ?>
+</div>
 	<script src="myphotos.js"></script>
 </body>
 </html>
