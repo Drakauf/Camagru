@@ -1,0 +1,13 @@
+#comenu {
+	background-color: blue;
+	display: inline-block;
+	width: 25%;
+	min-height: 93%;
+}
+
+#body {
+	background-color: lightblue;
+	width: 100%;
+	min-height: 93%;
+	display: flex;
+}

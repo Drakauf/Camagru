@@ -33,13 +33,18 @@ if ($sqlcheck->rowCount())
 		<title>Camagru</title>
 		<link rel="stylesheet" href="camera.css">
 		<link rel="stylesheet" href="../head_foot/header.css">
+		<link rel="stylesheet" href="../head_foot/menu.css">
 <script type="text/javascript">
 			var log='<?php echo $_SESSION['User'] ?>'
 						</script>
 	</head>
 	<body>
  <?php include_once '../head_foot/header.php';?> 
-<div id="camera">
+<div id="body">
+ <?php include_once '../head_foot/menu.php';?> 
+<div id="takephoto">
+	<div id="camera">
+	<canvas id="canvas"></canvas>
 		<?php foreach ($filtres as $filter)
 {
 	$img_p = $filter['path'];
@@ -59,7 +64,8 @@ if ($sqlcheck->rowCount())
 		</div>
  <button id="startbutton">Prendre une photo</button>
  <?php include_once '../head_foot/footer.php'; ?>
-	<canvas id="canvas"></canvas>
+</div>
+</div>
 	<script src="filtres.js"></script>
 	<script src="../head_foot/header.js"></script>
 	<script src="camera.js"></script>

@@ -1,4 +1,11 @@
 <?php
+
+if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
+{
+	session_destroy();
+	echo '<script type="text/javascript"> location.href = "/"; </script>'; 
+}
+
 if (isset($_SESSION['User']))
 	$user = $_SESSION['User'];
 else 

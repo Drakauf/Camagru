@@ -1,11 +1,5 @@
 <?php
 session_start();
-$loggued = (isset($_SESSION['User'])) ? $_SESSION['User']:'';
-if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
-{
-	session_destroy();
-	header("location: home.php");
-}
 ?>
 <html>
 	<head>
@@ -13,7 +7,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 		<title>Camagru</title>
 		<link rel="stylesheet" href="home.css">
 		<script type="text/javascript">
-			var log='<?php echo $loggued;?>'
+			var log='<?php if (isset($_SESSION['User'])) echo $_SESSION["User"];?>'
 		</script>
 	</head>
 	<body>
@@ -23,14 +17,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 			</div>
 <?php /* --------------- --------------- --------------- Images / Menu --------------- --------------- --------------- */ ?>
 			<div id="body">
-<?php /* --------------- Menu --------------- */ ?>
-				<div id="comenu">
-					<h1 align="center">Menu</h1>
-					<button type="text" id="acceuil">Acceuil</button></br></br>
-					<button type="text" id="camera">Prendre une photo</button></br></br>
-					<button type="text" id="myphotos">Mes Photos</button></br></br>
-					<button type="text" id="settings">Mes Reglages</button>
-				</div>
+		<?php include 'head_foot/menu.php'; ?>
 <?php /* --------------- Images --------------- */ ?>
 			<div id="imgdisplay">
 			<div class="imgbody"> 
