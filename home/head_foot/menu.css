@@ -1,17 +1,16 @@
 #comenu {
-	background-color: grey;
+	background-color: #607D8B;
 	display: inline-block;
 	width: 25%;
 	min-height: 93%;
-	border-style: none dashed none none;
+	color: white;
 }
 
 #body {
-	background-color: grey;
+	background-color: #90A4AE;
 	max-width: 100%;
-	min-height: 93%;
+	min-height: 90%;
 	display: flex;
-	border-style: dashed;
 }
 
 #comenu button
@@ -34,6 +33,7 @@
 
 body
 {
-	background-color: black;
+	background-color: #455A64;
+	font-family: sans-serif;
 }
 

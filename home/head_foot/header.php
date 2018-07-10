@@ -19,7 +19,7 @@ echo "<div id=bigdiv>
 </form>
 </div>
 <div id=noconnect>
-<p> Bonjour Invite</p>
+<div id=hname><h1> Bonjour Invite</h1></div>
 <button id=cobutton>Connection | Inscription</button>
 </div>
 </div>";
