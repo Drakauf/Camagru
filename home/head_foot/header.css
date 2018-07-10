@@ -1,0 +1,50 @@
+#bigdiv {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-color: red;
+	margin-right: 12.5vw;
+	margin-left: 12.5vw;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	min-height: 98vh;
+}
+
+/*********************************************************************/
+/* Header                                                            */
+/*********************************************************************/
+
+#header {
+	display:block;
+	background-color: green;
+	height : 5%;
+	width: 100%;
+}
+
+#connected {
+	float: right;
+	background-color: blue;
+	width: 50%;
+	height: 100%;
+}
+
+#deco {
+	width: 33%;
+	height: 5%;
+	float: right;
+	margin-bottom: 0px;
+}
+
+#noconnect {
+	float: right;
+	background-color: blue;
+	width: 50%;
+	height: 100%;
+}
+
+#cobutton {
+	width: 33%;
+	height: 5%;
+	float: right;
+	margin-bottom: 0px;
+}

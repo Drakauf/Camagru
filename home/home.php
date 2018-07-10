@@ -17,19 +17,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 		</script>
 	</head>
 	<body>
-		<div id="bigdiv">
-			<div id="header">
-				<div id="connected">
-					<p>Bonjour <?php echo $_SESSION['User'];?><br>
-					<form action:"home.php" method:"GET">
-						<input id="deco" type="submit" value="deconnection" name="submit">
-					</form>
-				</div>
-				<div id="noconnect">
-					<p> Bonjour Invite</p>
-					<button id="cobutton">Connection | Inscription</button>
-				</div>
-			</div>
+		<?php include 'head_foot/header.php'; ?>
 			<div id="reglette">
 				<input id="taille" type="range" min="300" max="500" value="300" name="slider"/>
 			</div>
@@ -45,66 +33,6 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 				</div>
 <?php /* --------------- Images --------------- */ ?>
 			<div id="imgdisplay">
-				<div class="imgbody">
-					<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-				</div>
-				<div class="imgbody"> 
-					<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-				</div>
-		<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-	<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-	<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-	<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-			<div class="imgbody"> 
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
-	<div class="imgbody">
-				<img class="image" src="http://google.com/images/logo.png"/>
-<p>text</p>
-			</div>
 			<div class="imgbody"> 
 				<img class="image" src="http://google.com/images/logo.png"/>
 <p>text</p>
@@ -112,6 +40,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == "deconnection")
 		</div>
 		</div>
 	</div>
+	<?php include 'head_foot/footer.php'; ?>
 	<script src="home.js"></script>
 	</body>
 </html>

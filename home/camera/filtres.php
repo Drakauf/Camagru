@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '/var/www/html/functions/bdco.php';
 $dossier = './filtres/';
 $files = array_diff(scandir($dossier), array('..', '.','.DS_Store', 'filtres.php', '.filtres.php.swp', 'filtres.css', '.filtres.css.swp', 'filtres.js', '.filtres.js.swp'));
@@ -33,8 +32,13 @@ if ($sqlcheck->rowCount())
 		<meta charset="utf-8" />
 		<title>Camagru</title>
 		<link rel="stylesheet" href="camera.css">
+		<link rel="stylesheet" href="../head_foot/header.css">
+<script type="text/javascript">
+			var log='<?php echo $_SESSION['User'] ?>'
+						</script>
 	</head>
 	<body>
+ <?php include_once '../head_foot/header.php';?> 
 <div id="camera">
 		<?php foreach ($filtres as $filter)
 {
@@ -54,8 +58,10 @@ if ($sqlcheck->rowCount())
 }?>
 		</div>
  <button id="startbutton">Prendre une photo</button>
-<canvas id="canvas"></canvas>
+ <?php include_once '../head_foot/footer.php'; ?>
+	<canvas id="canvas"></canvas>
 	<script src="filtres.js"></script>
+	<script src="../head_foot/header.js"></script>
 	<script src="camera.js"></script>
 	</body>
 </html>

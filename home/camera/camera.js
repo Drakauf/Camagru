@@ -71,11 +71,12 @@
 			}
 		};
 		xhr.send('filtre='+fil+'&data='+data);
+		canvas.height = 0;
+		canvas.width = 0;
 	}
 	function takepicture() {
 		canvas.width = width;
 		canvas.height = height;
-		canvas.style.display = 'block';
 		canvas.getContext('2d').drawImage(video, 0, 0, width, height);
 		var data = canvas.toDataURL();
 		var tosend=data;
@@ -88,3 +89,4 @@
 	}, false);
 
 })();
+
