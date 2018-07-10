@@ -1,0 +1,40 @@
+#reglages
+{
+	width: 100%;
+	text-align: center;
+}
+legend {
+	font-size: 150%;
+	margin-bottom: 15px;
+}
+
+.reglaform {
+	background-color: #FFFFFF;
+	width: 640px;
+	padding: 20px;
+	margin: auto;
+	margin-top: 1vh;
+}
+
+.reglaform input {
+	margin-top: 7px;
+	margin-bottom: 15px;
+	width: 625px;
+	height: 30px;
+	padding-left: 15px;
+	font-size: 100%;
+}
+
+.reglaform input[type="submit"] {
+	width: 640px;
+	height: 35px;
+	border: 0;
+	background-color: #42A5F5;
+	color: #FFFFFF;
+	font-size: 100%;
+}
+
+.reglaform p
+{
+	color: red;
+}

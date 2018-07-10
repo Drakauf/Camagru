@@ -1,25 +1,54 @@
 #allphotos {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+	align-content:flex-start;
+	width: 100%;
+	background-color: green;
 }
 
 #img_name {
-	width: 300px;
-	height: 400px;
+	width: 200px;
+	height: 250px;
 	text-align: center;
-	border: 15px Solid Black;
-	margin-left: 2.5vw;
-	margin-right: 2.5vw;
-	margin-top: 2.5vh;
+	border: 1px Solid Black;
+	margin-left: 0.5vw;
+	margin-right: 0.5vw;
+	margin-top: 1.5vh;
 }
 
 #imgdiv {
-	width: 300px;
-	height: 300px;
-	border-bottom: 15px Solid Black;
+	width: 200px;
+	height: 200px;
+	border-bottom: 1px Solid Black;
 }
 
 #imgdiv img {
 	width: 100%;
 	height: 100%;
+}
+
+#rename {
+	display : flex;
+	justify-content: wrap;
+	justify-content: center;
+	max-width: 100%;
+	max-height: 10%;
+}
+
+.cname {
+	width: 10%;
+	height: 100%;
+}
+
+.imgname{
+	width: 30%;
+	height: 10%;
+}
+
+.suppr
+{
+	width: 10%;
+	height: 10%;
+	float: right;
 }

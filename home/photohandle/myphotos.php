@@ -17,18 +17,30 @@ function mpsredirect($id)
 		<meta charset="utf-8" />
 		<title>Camagru</title>
 		<link rel="stylesheet" href="myphotos.css">
+		<link rel="stylesheet" href="../head_foot/header.css">
+		<link rel="stylesheet" href="../head_foot/menu.css">
+<script type="text/javascript">
+var log='<?php if (isset($_SESSION['User'])) echo $_SESSION["User"];?>'
+	</script>
 </head>
 <body>
+		<?php include '../head_foot/header.php'; ?>
+<div id= "body">		
+<?php include '../head_foot/menu.php'; ?>
 <div id="allphotos">
 <?php
 if (count($imagestab) == 0)
 	echo "you have no images yet";
 foreach ($imagestab as $images)
 {
-	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><input type="text" class="imgname" value="'.$images['image_name'].'"><button class="cname"> change name</button></br></br><button class="bouton">Delete photo</button> </div>';
+	echo '<div id="img_name" class="modif"><div id="imgdiv"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/></div><div id="rename"><input type="text" class="imgname" value="'.$images['image_name'].'"><img class=cname src="pencil.jpg"></div><img class="suppr" src="bin.png"></div>';
 }
 ?>
 </div>
+</div>
+		<?php include '../head_foot/footer.php'; ?>
+	<script src="../head_foot/header.js"></script>
 	<script src="myphotos.js"></script>
+	<script src="../head_foot/menu.js"></script>
 </body>
 </html>

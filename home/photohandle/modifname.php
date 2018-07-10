@@ -13,7 +13,7 @@ else
 		include '/var/www/html/functions/bdco.php';
 		$db = dataco();
 		$chname = $db->prepare("UPDATE Image SET image_name = ? WHERE image_id = ?");
-		if ($chname->execute([$_POST['name'], $_POST['id']]))
+		if ($chname->execute([htmlspecialchars($_POST['name']), $_POST['id']]))
 			echo "done";
 		else
 			echo "prob";

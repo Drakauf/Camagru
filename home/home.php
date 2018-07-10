@@ -6,6 +6,8 @@ session_start();
 		<meta charset="utf-8" />
 		<title>Camagru</title>
 		<link rel="stylesheet" href="home.css">
+		<link rel="stylesheet" href="head_foot/menu.css">
+		<link rel="stylesheet" href="head_foot/header.css">
 		<script type="text/javascript">
 			var log='<?php if (isset($_SESSION['User'])) echo $_SESSION["User"];?>'
 		</script>
@@ -29,5 +31,7 @@ session_start();
 	</div>
 	<?php include 'head_foot/footer.php'; ?>
 	<script src="home.js"></script>
+	<script src="head_foot/menu.js"></script>
+	<script src="head_foot/header.js"></script>
 	</body>
 </html>

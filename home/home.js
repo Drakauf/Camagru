@@ -1,22 +1,4 @@
 /*********************************************************************/
-/* Header: Div a afficher                                            */
-/*********************************************************************/
-
-var codiv = document.getElementById("connected");
-var nocodiv = document.getElementById("noconnect");
-
-if (log)
-{
-	codiv.style.display = "block";
-	nocodiv.style.display = "none";
-}
-else
-{
-	codiv.style.display = "none";
-	nocodiv.style.display = "block";
-}
-
-/*********************************************************************/
 /* Header : Redirection a connection/inscription                     */
 /*********************************************************************/
 
@@ -41,8 +23,8 @@ ranger.onchange = function(){
 	while (i < image.length)
 	{
 	    image[i].width =ranger.value;
-		    image[i].height = ranger.value;
-			i++;
+		image[i].height = ranger.value;
+		i++;
 	}
 }
 
@@ -59,37 +41,4 @@ if (log)
 else
 {
 	comenu.style.display = "none";
-}
-
-/*********************************************************************/
-/* Menu: Aller page camera                                           */
-/*********************************************************************/
-
-var camera = document.getElementById("camera");
-camera.addEventListener("click", camdirect);
-function camdirect()
-{
-	location.href = "camera/camera.php";
-}
-
-/*********************************************************************/
-/* Menu: Aller aux reglages                                          */
-/*********************************************************************/
-
-var regla = document.getElementById("settings");
-regla.addEventListener("click", regladirect);
-function regladirect()
-{
-	location.href = "reglages/reglages.php";
-}
-
-/*********************************************************************/
-/* Menu: Aller a mes photos                                          */
-/*********************************************************************/
-
-var regla = document.getElementById("myphotos");
-regla.addEventListener("click", myphotodirect);
-function myphotodirect()
-{
-	location.href = "photohandle/myphotos.php";
 }

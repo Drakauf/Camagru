@@ -68,6 +68,7 @@ if ($sqlcheck->rowCount())
 </div>
 	<script src="filtres.js"></script>
 	<script src="../head_foot/header.js"></script>
+	<script src="../head_foot/menu.js"></script>
 	<script src="camera.js"></script>
 	</body>
 </html>

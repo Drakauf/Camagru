@@ -1,38 +1,35 @@
 *** Home ***
-(responsive images/slider);
-need to start making home...
-
-connected div to do
--> take a photo: To take a photo: div/ page** ?
--> my photos: see all your photos.
--> my account: all my settings (started to change (on/off) notif/ change mdp).
-
-phote page/div ?
-(most liked photos slideshows)
+	(responsive images/slider);
+	need to start making home...
+	phote page/div ?
+	(most liked photos slideshows)
 
 
 *** Inscription/connection ***
+	secure password,
+	forgot password.
+	change mail (send mail to 2 mails)
 
-secure password,
-forgot password.
-change mail (send mail to 2 mails)
 *** Taking Image. ***
+	add download image.
 
 *** Taking image page ***
-Add navigation + deconection (header)
-show thaken photos miniature
+	show thaken photos miniature
 
 
 *** Image ***
-
-Add total Likes,
-f: count total likes, and add it to the table, (to use after each like/dislike).
+	Add total Likes,
+	f: count total likes, and add it to the table, (to use after each like/dislike).
 
 *** My photos ***
-show images with name (list / icone);
-Possibility to change name(started, on going);
+	show images with name (list / icone);
+	Possibility to change name(started, on going);
+	Add navigation + deconection (header)
 
 *** Started to do some css ***
-header / footer
-menu to separe
+	header / footer
+	menu to separe
 
+*** Reglages ***
+	change Mail,
+	add photo user,

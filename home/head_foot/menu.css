@@ -1,13 +1,38 @@
 #comenu {
-	background-color: blue;
+	background-color: grey;
 	display: inline-block;
 	width: 25%;
 	min-height: 93%;
+	border-style: none dashed none none;
 }
 
 #body {
-	background-color: lightblue;
-	width: 100%;
+	background-color: grey;
+	max-width: 100%;
 	min-height: 93%;
 	display: flex;
+	border-style: dashed;
+}
+
+#comenu button
+{
+	margin-top: 0.5vh;
+	margin-bottom: 0.5vh;
+	width: 100%;
+	height: 2.5vh;
+	border: 0;
+	color: #FFFFFF;
+	font-size: 100%;
+	background-color: inherit;
+}
+
+
+#comenu button:hover
+{
+	background-color: #42A5F5;
+}
+
+body
+{
+	background-color: black;
 }

@@ -65,80 +65,80 @@ if (isset($_GET['modifmail']))
 ?>
 
 <html>
-	<head>
-		<meta charset="utf-8"/>
-		<title> Camagru - Reglages</title>
-	</head>
-	<body>
-<?php 
+<head>
+		<meta charset="utf-8" />
+		<title>Camagru</title>
+		<link rel="stylesheet" href="../head_foot/header.css">
+		<link rel="stylesheet" href="reglages.css">
+		<link rel="stylesheet" href="../head_foot/menu.css">
+		<script type="text/javascript">
+			var log='<?php echo $_SESSION['User'] ?>'
+		</script>
+</head>
+<body>
 
-if (isset($notifsucces))
-{ 
-	if ($notifsucces == 1) 
-	{ 
-		echo "<p> vous receverez des notification quand vos photo seront commente</p>";
-	}
-	if ($notifsucces == 0)
-	{
-		echo "<p> vous ne receverez plus de notification si une de vos photo est commente </p>";
-	}
-	unset($notiftsucces);
-}
 
-if (isset($mdpsucces))
-{
-	if ($mdpsucces == 0)
-	{
-		echo "<p> Veuillez remplir tout les champs </p>";
-	}
-	if ($mdpsucces == 1)
-	{
-		echo "<p> Le mot de passe et le mot de passe de confirmation sont differents </p>";
-	}
-	if ($mdpsucces == 2)
-	{
-		echo "<p> L'ancien mot de passe ne correspond pas.</p>";
-	}
-	unset($mdpsucces);
-}
-if (isset($mailsucces))
-{
-	if ($mailsucces == 0)
-	{
-		echo "<p> Veuillez remplir tout les champs </p>";
-	}
-	if ($mailsucces == 1)
-	{
-		echo "<p> Les information donnees sont erronees</p>";
-	}
-	if ($mailsucces == 2)
-	{
-		echo "<p>Addresse mail non valide </p>";
-	}
-}
-?>
 
-	<form action:"reglages.php" method:"GET">
+	<?php include '../head_foot/header.php'; ?>
+<div id="body">
+	<?php include '../head_foot/menu.php'; ?>
+<div id=reglages>
+<h1> Reglages </h1>
+	<form class=reglaform action:"reglages.php" method:"GET">
+
 	<label> Notifications : </label>
+<?php if (isset($notifsucces)){ 
+	if ($notifsucces == 1) 
+		echo "<p> vous receverez des notification quand vos photo seront commente</p>";
+	if ($notifsucces == 0)
+		echo "<p> vous ne receverez plus de notification si une de vos photo est commente </p>";
+	unset($notiftsucces);}?>
 	<select name="notification">
 			<option value="oui">Oui</option>
 			<option value="non">Non</option>
 		</select>
 		<input type="submit" name="notif" value="modifier">
 	</form>
-	<form action:"reglages.php" method:"GET">
-		<label> Modifier le mot de passe </label></br>
+
+	<form class=reglaform action:"reglages.php" method:"GET">
+		<legend> Modifier le mot de passe </legend></br>
+<?php if (isset($mdpsucces)){
+	if ($mdpsucces == 0)
+		echo "<p> Veuillez remplir tout les champs </p>";
+	if ($mdpsucces == 1)
+		echo "<p> Le mot de passe et le mot de passe de confirmation sont differents </p>";
+	if ($mdpsucces == 2)
+		echo "<p> L'ancien mot de passe ne correspond pas.</p>";
+	unset($mdpsucces);}?>
+		<label> Ancien mot de passe: </label>
 		<input type="password" name="oldmdp"></br>
+		<label> Nouveau mot de passe: </label>
 		<input type="password" name="mdp"></br>
+		<label> Confirmer mot de passe: </label>
 		<input type="password" name="cmdp"></br>
 		<input type="submit" name="passwd" value="modifier">
 	</form>
-	<form action:"reglages.php" method:"GET">
-	<label> Modifier l'addresse mail </label>
+
+	<form class=reglaform action:"reglages.php" method:"GET">
+	<legend> Modifier l'addresse mail </legend>
+<?php if (isset($mailsucces)){
+	if ($mailsucces == 0)
+		echo "<p> Veuillez remplir tout les champs </p>";
+	if ($mailsucces == 1)
+		echo "<p> Les information donnees sont erronees</p>";
+	if ($mailsucces == 2)
+		echo "<p>Addresse mail non valide </p>";}?>
+	<label> Ancien Mail: </label>
 	<input type="text" name="oldmail"></br>
+	<label> Pseudo: </label>
 	<input type="text" name="pseudo"></br>
+	<label> Nouveau Mail: </label>
 	<input type="text" name="newmail"</br>
 	<input type="submit" name="modifmail" value="modifier">
 	</form>
-	<form>
-	</body>
+</div>
+	<?php include '../head_foot/footer.php'; ?>
+	<script src="../head_foot/menu.js"></script>
+	<script src="../head_foot/header.js"></script>
+</body>
+</html>

@@ -30,7 +30,7 @@ function redirect(k)
 /*delete
 /***************************************************************************************/
 
-var boutons = document.getElementsByClassName("bouton");
+var boutons = document.getElementsByClassName("suppr");
 var imgdiv  = document.getElementsByClassName("modif");
 
 boutonload();
