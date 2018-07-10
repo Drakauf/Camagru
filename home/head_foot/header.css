@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	background-color: red;
+	background-color: grey;
 	margin-right: 12.5vw;
 	margin-left: 12.5vw;
 	margin-top: 1vh;
@@ -16,23 +16,29 @@
 
 #header {
 	display:block;
-	background-color: green;
+	background-color: inherit;
 	height : 5%;
 	width: 100%;
 }
 
 #connected {
 	float: right;
-	background-color: blue;
+	background-color: inherit;
 	width: 50%;
 	height: 100%;
+	position: relative;
 }
 
 #deco {
-	width: 33%;
-	height: 5%;
 	float: right;
-	margin-bottom: 0px;
+	font-size: 100%;
+	border: 0;
+	background-color: inherit;
+}
+
+#deco:hover
+{
+	background-color: #42A5F5;
 }
 
 #noconnect {
@@ -46,5 +52,10 @@
 	width: 33%;
 	height: 5%;
 	float: right;
-	margin-bottom: 0px;
 }
+
+#hname h1
+{
+	display: inline;
+}
+

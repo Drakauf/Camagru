@@ -13,8 +13,8 @@ else
 echo "<div id=bigdiv>
 	<div id=header>
 <div id=connected>
-<p>Bonjour $user <br>
-<form action:'home.php' method:'GET'>
+<div id=hname><h1>Bonjour $user </h1></div>
+<form id=formulaire action:'home.php' method:'GET'>
 <input id=deco type=submit value=deconnection name=submit>
 </form>
 </div>
