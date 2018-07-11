@@ -21,26 +21,56 @@
 #imgdisplay{
 	text-align: center;
 	width:100%;
-	display: inline-block;
+	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: center;
+	align-content:flex-start;
 	min-height: 93%;
-
+	overflow-x: auto;
 }
 
 .imgbody {
 	display: inline-block;
-	min-width: 10%;
-	max-width: 75%;
-	height: auto;
-	min-height: 10%;
-	max-height: 50%;
-	background-color: pink;
 	margin-top: 0.5%;
 	margin-bottom: 0.5%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	min-width: 255px;
+	min-height: 255px;
+	max-width: 650px;
+	max-height: 850px
+
 }
 
 .image {
-	min-width: 300;
-	min-height: 300;
+	max-width: 650px;
+	max-height: 650px
+}
+
+#usercarac{
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 200px;
+	max-width: 650px;
+
+}
+
+#username {
+	margin-left: 10%;
+}
+
+#user_photo{
+	width: 50px;
+	height: 50px;
+	border: solid;
+}
+
+#photocarac
+{
+	width: 100%;
+}
+
+#user_photo p
+{
+	display: inline-block;
 }

@@ -21,9 +21,8 @@ $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 	</head>
 	<body>
 		<?php include 'head_foot/header.php'; ?>
-	<script src="head_foot/header.js"></script>
 			<div id="reglette">
-				<input id="taille" type="range" min="255" max="650" value="440" name="slider"/>
+				<input id="taille" type="range" min="200" max="680" value="200" name="slider"/>
 			</div>
 <?php /* --------------- --------------- --------------- Images / Menu --------------- --------------- --------------- */ ?>
 			<div id="body">
@@ -37,7 +36,7 @@ foreach ($imagestab as $images)
 	$user = $db->prepare('SELECT pseudo FROM User WHERE user_id = ?');
 	$user->execute([$images['user_id']]);
 	$username = $user->fetch(PDO::FETCH_ASSOC);
-		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p>1</p><p>likes</p></div></div>';
+		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/><div id="usercarac"><div id="user_photo"></div><h1 id=username>  '.$username['pseudo'].'</h1><div id=photocarac><p>'.$images['image_name'].'</p></div></div></div>';
 }
 ?>
 		</div>
@@ -45,6 +44,7 @@ foreach ($imagestab as $images)
 </div>
 	<?php include 'head_foot/footer.php'; ?>
 	<script src="head_foot/menu.js"></script>
+	<script src="head_foot/header.js"></script>
 	<script src="home.js"></script>
 	</body>
 </html>

@@ -21,30 +21,34 @@ $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 	</head>
 	<body>
 		<?php include 'head_foot/header.php'; ?>
-	<script src="head_foot/header.js"></script>
 			<div id="reglette">
-				<input id="taille" type="range" min="255" max="650" value="440" name="slider"/>
+				<input id="taille" type="range" min="200" max="680" value="200" name="slider"/>
 			</div>
 <?php /* --------------- --------------- --------------- Images / Menu --------------- --------------- --------------- */ ?>
 			<div id="body">
 		<?php include 'head_foot/menu.php'; ?>
 <div id=imgdisplay>
+<?php /* --------------- Images --------------- */ ?>
 <?php
 if (count($imagestab) == 0)
 		echo "you have no images yet";
 foreach ($imagestab as $images)
 {
-	$user = $db->prepare('SELECT pseudo FROM User WHERE user_id = ?');
-	$user->execute([$images['user_id']]);
-	$username = $user->fetch(PDO::FETCH_ASSOC);
-		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p>1</p><p>likes</p></div></div>';
+		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'"/><div><p>'.$images['image_name'].'</p></div></div>';
 }
 ?>
+			<div id="imgdisplay">
+			<div class="imgbody"> 
+				<img class="image" src="http://google.com/images/logo.png"/>
+<p>text</p>
+			</div>
+		</div>
 		</div>
 	</div>
 </div>
 	<?php include 'head_foot/footer.php'; ?>
-	<script src="head_foot/menu.js"></script>
 	<script src="home.js"></script>
+	<script src="head_foot/menu.js"></script>
+	<script src="head_foot/header.js"></script>
 	</body>
 </html>
