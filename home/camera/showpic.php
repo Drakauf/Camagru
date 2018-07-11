@@ -43,6 +43,23 @@ else if ($_POST['data'] != 'undefined' && $_POST['filtre'] != 'undefined')
 	$db = dataco();
 	$insertp = $db->prepare('INSERT INTO Image (image_src, image_name, user_id, date) VALUES( ?, ?, ?, ?);');
 	$insertp->execute([$imgbase, date('d.m.y', time()), $_SESSION['User_id'], date(time())]);
-echo "<script> console.log($dest)</script>";
+
+	$histor = $db->prepare('SELECT * FROM Image WHERE user_id = ? ORDER BY image_id DESC');
+	$histor->execute([$_SESSION['User_id']]);
+	if ($histor->rowCount())
+	{
+				$oldphoto = $histor->fetchAll(PDO::FETCH_ASSOC);
+	}
+	else
+				$oldphoto = 0;
+	if ($oldphoto == 0) echo "<h1>You have no photos yet, take some and show off ;)</h1>";
+	else
+	{
+		foreach ($oldphoto as $photo)
+		{
+			$img = "data:image/png;base64,".$photo['image_src'];
+			echo "<img class=oldphoto src=$img>";
+		};
+	}
 }
 ?>

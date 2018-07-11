@@ -3,8 +3,8 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	background-color: #607D8B;
-	margin-right: 12.5vw;
-	margin-left: 12.5vw;
+	margin-right: 10vw;
+	margin-left: 10vw;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 }
@@ -66,4 +66,3 @@
 	color: white;
 	display: inline;
 }
-

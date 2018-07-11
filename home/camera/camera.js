@@ -1,12 +1,14 @@
 (function() {
 
+	chargediv();
 	var streaming	= false,
 	video			= document.querySelector('#video'),
 	cover			= document.querySelector('#cover'),
 	canvas			= document.querySelector('#canvas'),
 	photo			= document.querySelector('#photo'),
 	startbutton 	= document.querySelector('#startbutton'),
-	filtre			= document.getElementsByClassName("toshow");
+	filtre			= document.getElementsByClassName("toshow"),
+	oldphoto		= document.getElementById("divoldphotos"),
 	width = 680,
 	height = 480;
 
@@ -42,6 +44,7 @@
 			streaming = true;
 		}
 	}, false);
+
 	function setfilter(data) {
 		var i;
 		i = 0;
@@ -54,9 +57,7 @@
 		xhr.open('POST', 'showpic.php');
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
-			if (xhr.status === 200 && xhr.responseText == "done") {
-			}
-			else if (xhr.status === 200 && xhr.responseText == "nofiltre") {
+			if (xhr.status === 200 && xhr.responseText == "nofiltre") {
 				alert("can't take a photo without a filter");
 			}
 			else if (xhr.status === 200 && xhr.responseText == "nodata") {
@@ -65,15 +66,25 @@
 			else if (xhr.status !== 200) {
 				alert('Request failed.  Returned status of ' + xhr.status);
 			}
-			else if (xhr.status === 200)
-			{
-				alert(xhr.responseText);
-			}
+			else
+				oldphoto.innerHTML = xhr.responseText;
 		};
 		xhr.send('filtre='+fil+'&data='+data);
 		canvas.height = 0;
 		canvas.width = 0;
 	}
+
+	function chargediv()
+	{
+		var dpho = new XMLHttpRequest();
+		dpho.open('POST', 'oldphoto.php');
+		dpho.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		dpho.onload = function() {
+				oldphoto.innerHTML = dpho.responseText;
+		};
+		dpho.send();
+	}
+
 	function takepicture() {
 		canvas.width = width;
 		canvas.height = height;

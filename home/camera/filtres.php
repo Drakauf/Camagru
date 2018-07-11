@@ -27,6 +27,7 @@ if ($sqlcheck->rowCount())
 	}
 }
 ?>
+
 <html>
 <head>
 		<meta charset="utf-8" />
@@ -63,6 +64,8 @@ if ($sqlcheck->rowCount())
 }?>
 		</div>
  <button id="startbutton">Prendre une photo</button>
+<div id="divoldphotos">
+</div>
  <?php include_once '../head_foot/footer.php'; ?>
 </div>
 </div>
