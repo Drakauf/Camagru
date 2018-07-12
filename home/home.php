@@ -28,6 +28,7 @@ $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 <?php /* --------------- --------------- --------------- Images / Menu --------------- --------------- --------------- */ ?>
 			<div id="body">
 		<?php include 'head_foot/menu.php'; ?>
+	<script src="home.js"></script>
 <div id=imgdisplay>
 <?php
 if (count($imagestab) == 0)
@@ -45,6 +46,5 @@ foreach ($imagestab as $images)
 </div>
 	<?php include 'head_foot/footer.php'; ?>
 	<script src="head_foot/menu.js"></script>
-	<script src="home.js"></script>
 	</body>
 </html>
