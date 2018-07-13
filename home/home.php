@@ -32,7 +32,7 @@ $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 <div id=imgdisplay>
 <?php
 if (count($imagestab) == 0)
-		echo "you have no images yet";
+		echo "<h1>There is no image yet, be the first to post one =D</h1>";
 foreach ($imagestab as $images)
 {
 	$user = $db->prepare('SELECT pseudo FROM User WHERE user_id = ?');

@@ -7,6 +7,7 @@ $connection = dataco();
 $user = "CREATE TABLE IF NOT EXISTS User (
 	user_id INT NOT NULL AUTO_INCREMENT,
 	mail	VARCHAR(1000) NOT NULL,
+	user_ph	VARCHAR(1200000),
 	mdp		VARCHAR(1000) NOT NULL,
 	pseudo	VARCHAR(15) DEFAULT NULL,
 	cle		VARCHAR(100000)	NOT NULL,

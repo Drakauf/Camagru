@@ -2,6 +2,13 @@
 
 include '/var/www/html/functions/bdco.php';
 
+function random_pic()
+{
+		$files = glob(realpath('/var/www/html/functions/icons') . '/*.*');
+		$file = array_rand($files);
+		return $files[$file];
+}
+
 function inscri($mail, $pseudo, $pass){
 	$db = dataco();
 
@@ -17,10 +24,11 @@ function inscri($mail, $pseudo, $pass){
 	if ($res != 0)
 		return (3);
 
+	$icon = base64_encode(file_get_contents(random_pic()));
 	$cle = md5(microtime(TRUE)*10);
 	$passwd = hash('sha512', $pass);
-	$save = $db->prepare('INSERT INTO User (mail, mdp, pseudo, cle) VALUES( ?, ?, ?, ?);');
-	$save->execute([$mail, $passwd, htmlspecialchars($pseudo), $cle]);
+	$save = $db->prepare('INSERT INTO User (mail, mdp, pseudo, cle, user_ph) VALUES( ?, ?, ?, ?, ?);');
+	$save->execute([$mail, $passwd, htmlspecialchars($pseudo), $cle, $icon]);
 	ft_mail($mail, $pseudo, $cle);
 	return (-1);
 }

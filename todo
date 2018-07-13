@@ -1,9 +1,5 @@
 *** Home ***
-	(responsive images/slider);
-	need to start making home...
-	phote page/div ?
-	(most liked photos slideshows)
-
+	most liked photos slideshows
 
 *** Inscription/connection ***
 	secure password,
@@ -11,25 +7,14 @@
 	change mail (send mail to 2 mails)
 
 *** Taking Image. ***
-	add download image.
-
-*** Taking image page ***
-	show thaken photos miniature
-
+	add upload image.
 
 *** Image ***
 	Add total Likes,
 	f: count total likes, and add it to the table, (to use after each like/dislike).
 
-*** My photos ***
-	show images with name (list / icone);
-	Possibility to change name(started, on going);
-	Add navigation + deconection (header)
-
-*** Started to do some css ***
-	header / footer
-	menu to separe
-
 *** Reglages ***
 	change Mail,
 	add photo user,
+
+
