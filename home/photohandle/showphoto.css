@@ -1,0 +1,111 @@
+#alldetails {
+	width: 680px;
+	height: 650px;
+	background-color: #CFD8DC;
+	margin-top: 5vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#alldetails h3 {
+text-align: center;
+}
+.imgbody {
+	display: inline-block;
+
+}
+
+.image {
+	width: 680px;
+	height: 480px;
+}
+
+#usercarac{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 1%;
+	min-width: 200px;
+	max-width: 650px;
+
+}
+
+#username {
+	margin-left: 5%;
+}
+
+#user_photo{
+	width: 50px;
+	height: 50px;
+	border: solid;
+}
+
+#user_photo img {
+	width: 100%;
+	height: 100%;
+}
+
+#photocarac
+{
+	width: 100%;
+}
+
+#user_photo p
+{
+	display: inline-block;
+}
+
+
+#likimg {
+	float: right;
+	height: 30px;
+	width: 30px;
+}
+
+#photocarac p {
+	float : right;
+}
+
+#comimg {
+	margin-left: 10px;
+	float: right;
+	height: 30px;
+	width: 30px;
+}
+
+#comments {
+	margin-left: 1%;
+}
+
+#comdiv {
+	display: flex;
+
+}
+
+#sendcom{
+	width: 680px;
+	background-color: #CFD8DC;
+	margin-top: 0.5vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#sendcom textarea {
+	width: 660px;
+	height: 50px;
+	margin-top:10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#sendcom input[type="submit"] 
+{
+	width: 660px;
+	height: 25px;
+	border: 0;
+	font-size: 100%;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}

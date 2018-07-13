@@ -7,7 +7,7 @@ if (!(isset($_SESSION['User'])))
 include '/var/www/html/functions/bdco.php';
 $db = dataco();
 
-$bdimage = $db->prepare('SELECT * FROM Image WHERE User_id = ? ORDER BY image_id DESC');
+$bdimage = $db->prepare('SELECT * FROM Image WHERE user_id = ? ORDER BY image_id DESC');
 $bdimage->execute([$_SESSION['User_id']]);
 $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 
