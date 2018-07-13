@@ -23,7 +23,7 @@ function addimgevent(i)
 
 function redirect(k)
 {
-	location.href = "modifimage.php?id=" + k;
+	location.href = "showphoto.php?id=" + k;
 }
 
 /***************************************************************************************/

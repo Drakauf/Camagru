@@ -35,10 +35,10 @@ if (count($imagestab) == 0)
 		echo "<h1>There is no image yet, be the first to post one =D</h1>";
 foreach ($imagestab as $images)
 {
-	$user = $db->prepare('SELECT pseudo FROM User WHERE user_id = ?');
+	$user = $db->prepare('SELECT * FROM User WHERE user_id = ?');
 	$user->execute([$images['user_id']]);
 	$username = $user->fetch(PDO::FETCH_ASSOC);
-		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p>1</p><p>likes</p></div></div>';
+		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"><img src="data:image/png;base64,'.$username['user_ph'].'"/></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p>1</p><p>likes</p></div></div>';
 }
 ?>
 		</div>
@@ -46,5 +46,6 @@ foreach ($imagestab as $images)
 </div>
 	<?php include 'head_foot/footer.php'; ?>
 	<script src="head_foot/menu.js"></script>
+	<script src="photoevent.js"></script>
 	</body>
 </html>
