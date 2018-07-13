@@ -21,17 +21,6 @@ ranger.onchange = function(){
 	}
 }
 
-/*********************************************************************/
-/* Header : Redirection a connection/inscription                     */
-/*********************************************************************/
-
-var cobutton = document.getElementById("cobutton");
-cobutton.addEventListener("click", coredirect);
-function coredirect()
-{
-	location.href = "connection/connection.php";
-}
-
 
 /*********************************************************************/
 /* Body: afficher le menu une fois connecter                         */

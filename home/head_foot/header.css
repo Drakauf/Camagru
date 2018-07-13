@@ -7,6 +7,7 @@
 	margin-left: 10vw;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
+	width: 80vw;
 }
 
 /*********************************************************************/
@@ -49,10 +50,9 @@
 
 #cobutton {
 	float: right;
-	font-size: 100%;
-	border: 0;
 	background-color: inherit;
-	color: white;
+	width: 50px;
+	height: 50px;
 }
 
 #cobutton:hover

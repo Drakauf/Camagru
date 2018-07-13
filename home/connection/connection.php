@@ -58,10 +58,16 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'connection')
 		<meta charset="utf-8">
 		<title>Services Le-101</title>
 		<link rel="stylesheet" href="connection.css">
+		<link rel="stylesheet" href="../head_foot/header.css">
+		<link rel="stylesheet" href="../head_foot/menu.css">
+<script type="text/javascript">
+			var log='<?php if (isset($_SESSION['User'])) echo $_SESSION["User"];?>'
+						</script>
 		<script type="text/javascript"> var c='<?php if (isset($insfail) && $insfail != 0) {echo 0;} else {echo (1);}?>';</script>
 	</head>
 	<body>
-	<div id="bigdiv">
+		<?php include '../head_foot/header.php'; ?>	
+	<script src="../head_foot/header.js"></script>
 		<div id="menu">
 			<button type="text" id="co">Connection</button>
 			<button type="text" id="in">Inscription</button>
@@ -127,6 +133,7 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'connection')
 <button type="text" id="retour">Retourner a l'acceuil</button>
 		</div>
 	</div>
+		<?php include '../head_foot/footer.php'; ?>	
 	<script src="connection.js"></script>
 	</body>
 </html>

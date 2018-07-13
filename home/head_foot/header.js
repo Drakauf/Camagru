@@ -33,3 +33,17 @@ function decoredirect()
 	xhr.send();
 	location.href = "/";
 }
+
+/*********************************************************************/
+/* deconnection                                                      */
+/*********************************************************************/
+
+var deconnection = document.getElementById("cobutton");
+
+deconnection.addEventListener("click", coredirect);
+
+function coredirect()
+{
+	location.href = "/home/connection/connection.php";
+}
+

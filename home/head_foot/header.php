@@ -18,7 +18,7 @@ echo '<img id=deco src="/home/head_foot/deco.png">
 </div>
 <div id=noconnect>
 <div id=hname><h1> Bonjour Invite</h1></div>
-<button id=cobutton>Connection | Inscription</button>
+<img id=cobutton src="/home/head_foot/login.png">
 </div>
 </div>';
 ?>
