@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if (!(isset($_SESSION['User'])))
+	echo '<script type="text/javascript"> location.href = "/"; </script>';
+
 include '/var/www/html/functions/bdco.php';
 $db = dataco();
 

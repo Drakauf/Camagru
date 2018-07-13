@@ -8,16 +8,16 @@
 
 button{
 	border: none;
-	background-color: Blue;
+	background-color: inherit;
 	width: 10%;
 	height: 100%;
-	border-radius: 1vh;
 	font-size: 1vmin;
 	text-align: center;
+	color: #FFFFFF;
 }
 
 button:hover{
-	background-color: #E1F5FE;
+	background-color: #42A5F5;
 	border: 0.1em Solid Blue;
 	font-style: italic;
 }
@@ -25,28 +25,30 @@ button:hover{
 #menu {
 	display: flex;
 	justify-content: center;
-	background-color:green;
+	background-color: inherit;
 	text-align:center;
 	width: 100%;
 	height: 2.5%;
 }
 
 #connection {
-	margin-top: 2%;
-	background-color: #E1F5FE;
-	width: 40%;
-	height:50%;
+	margin-top: 1vh;
+	background-color: #FFFFFF;
+	width: 640px;
+	min-height:50%;
 	font-size: 1vmin;
-	margin-left: 30%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #inscription {
-	margin-top: 2%;
-	background-color: #E1F5FE;
-	width: 40%;
+	margin-top: 1vh;
+	background-color: #FFFFFF;
+	width: 640px;
 	height:50%;
 	font-size: 1vmin;
-	margin-left: 30%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 p {
@@ -62,46 +64,38 @@ p {
 	width: 100%;
 }
 
-label {
-	display: inline-block;
-	margin-left: 25%;
-	width: 15%;
-	height: 1%;
+form {
+	background-color: #FFFFFF;
+	width: 640px;
+	margin: auto;
+	margin-top: 1vh;
+	text-align: center;
+}
+
+form input {
+	margin-top: 7px;
+	margin-bottom: 15px;
+	width: 625px;
+	height: 30px;
+	padding-left: 15px;
+	font-size: 100%;
+}
+
+form input[type="submit"]{
+	width: 625px;
+	height: 35px;
+	border: 0;
+	background-color: #42A5F5;
+	color: #FFFFFF;
+	font-size: 100%;
 }
 
 #acceuil {
-	background-color: yellow;
-	width: 40%;
+	background-color: inherit;
+	width: 640px;
 	height: 2.5%;
-	margin-left: 30%;
-}
-
-#okey {
-	width: 20%;
-	margin-left: 35%;
-	margin-top: 2.5%;
-	height: 5%;
-}
-
-#okey2 {
-	width: 20%;
-	margin-left: 35%;
-	margin-top: 2.5%;
-	height: 5%;
-}
-
-#okey3 {
-	width: 20%;
-	margin-left: 35%;
-	margin-top: 2.5%;
-	height: 5%;
-}
-
-#okey4 {
-	width: 20%;
-	margin-left: 35%;
-	margin-top: 2.5%;
-	height: 5%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 #retour {
