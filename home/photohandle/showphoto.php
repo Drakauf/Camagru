@@ -22,6 +22,15 @@ $comments = $db->prepare('SELECT * FROM Comlik WHERE image_id = ? AND type LIKE 
 $comments->execute([$_GET['id']]);
 $nbcomments = $comments->rowCount();
 
+$getcom = $db->prepare('SELECT * FROM Comlik WHERE type LIKE "C" AND image_id = ?');
+$getcom->execute([$_GET['id']]);
+
+if ($getcom->rowCount())
+{
+	$allcoms = $getcom->fetchAll(PDO::FETCH_ASSOC);
+}
+else 
+	$allcoms = 0;
 ?>
 
 <html>
@@ -43,6 +52,18 @@ var log='<?php if (isset($_SESSION['User'])) echo $_SESSION["User"];?>'
 
 <div id="alldetails">
 <?php echo '<div class="imgbody"><img class="image" id="'.$image['image_id'].'" src="data:image/png;base64,'.$image['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"><img src="data:image/png;base64,'.$username['user_ph'].'"/></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$image['image_name'].'</h3><p id="nbcomment">'. $nbcomments .'</p><img id=comimg src="/home/photohandle/comment.png"/><p id=likes> '. $nblikes .'</p><img id=likimg src=/></div></div>';?>
+<div id=coms>
+<?php
+echo $allcoms;
+	if ($allcoms != 0)
+	{
+		foreach ($allcoms as $com)
+		{
+			print_r($com);
+		};
+	}
+?>
+<div id=comment><div id=user_id><img src="test"> <p>1111111111111111111111</p></div><div id=text><p>textiiiiii iiiiiiiiiiiiiiiiii</p></div></div></div>
 <div id=sendcom><textarea id="combox" name="comment"></textarea>
 <input id="cbutton"  type="submit" name="sendcomment" value="Envoyer le commentaire"></div>
 </div>
