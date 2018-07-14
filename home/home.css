@@ -80,3 +80,24 @@
 {
 	display: inline-block;
 }
+
+#coming {
+	margin-left: 10px;
+	float: right;
+	height: 30px;
+	width: 30px;
+}
+
+#nbcomment {
+	float: right;
+}
+
+.likimg {
+	float: right;
+	width: 30px;
+	height: 30px;
+}
+
+.likes{
+	float: right;
+}

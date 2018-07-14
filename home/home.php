@@ -6,7 +6,6 @@ $db = dataco();
 $bdimage = $db->prepare('SELECT * FROM Image ORDER BY image_id DESC');
 $bdimage->execute();
 $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <html>
 	<head>
@@ -38,8 +37,20 @@ foreach ($imagestab as $images)
 	$user = $db->prepare('SELECT * FROM User WHERE user_id = ?');
 	$user->execute([$images['user_id']]);
 	$username = $user->fetch(PDO::FETCH_ASSOC);
-		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"><img src="data:image/png;base64,'.$username['user_ph'].'"/></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p>1</p><p>likes</p></div></div>';
+
+$likes = $db->prepare('SELECT * FROM Comlik WHERE image_id = ? AND type LIKE "L"');
+$likes->execute([$images['image_id']]);
+$nblikes = $likes->rowCount();
+
+$comments = $db->prepare('SELECT * FROM Comlik WHERE image_id = ? AND type LIKE "C"');
+$comments->execute([$images['image_id']]);
+$nbcomments = $comments->rowCount();
+
+
+
+		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"><img src="data:image/png;base64,'.$username['user_ph'].'"/></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p id=nbcomment>'.$nbcomments.'</p><img id=coming src="/home/photohandle/comment.png"><p class=likes>'.$nblikes.'</p><img class=likimg src=/></div></div>';
 }
+
 ?>
 		</div>
 	</div>

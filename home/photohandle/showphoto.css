@@ -1,7 +1,6 @@
 #alldetails {
 	width: 680px;
-	height: 650px;
-	background-color: #CFD8DC;
+	background-color: inherit;
 	margin-top: 5vh;
 	margin-left: auto;
 	margin-right: auto;
@@ -9,11 +8,11 @@
 
 
 #alldetails h3 {
-text-align: center;
+	text-align: center;
 }
+
 .imgbody {
 	display: inline-block;
-
 }
 
 .image {
@@ -22,11 +21,11 @@ text-align: center;
 }
 
 #usercarac{
+	background-color: #CFD8DC;
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 1%;
 	min-width: 200px;
-	max-width: 650px;
+	max-width: 680px;
 
 }
 
@@ -38,6 +37,9 @@ text-align: center;
 	width: 50px;
 	height: 50px;
 	border: solid;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 2px;
 }
 
 #user_photo img {
@@ -48,6 +50,13 @@ text-align: center;
 #photocarac
 {
 	width: 100%;
+	min-height: 75px;
+	background-color: #CFD8DC;
+}
+
+#photocarac h3 {
+
+	margin-top: 0px;
 }
 
 #user_photo p
@@ -64,6 +73,7 @@ text-align: center;
 
 #photocarac p {
 	float : right;
+	background-color: #CFD8DC;
 }
 
 #comimg {
@@ -112,9 +122,12 @@ text-align: center;
 
 #coms {
 	background-color: #CFD8DC;
+	display: inline-block;
+	width: 100%;
 }
 
 #comment{
+	display: inline-block;
 	height: 75px;
 	display: flex;
 }
@@ -139,4 +152,8 @@ text-align: center;
 	text-align: center;
 	overflow-x: auto;
 	overflow-y: auto;
+}
+
+#nbcomment {
+	margin-right: 5px;
 }

@@ -1,20 +1,17 @@
-*** Home ***
-	most liked photos slideshows
+==========> Home <==========
+=> PAGINATION
+(=> most likes photos)
 
-*** Inscription/connection ***
-	secure password,
-	forgot password.
-	change mail (send mail to 2 mails)
+==========> inco <==========
+=> secure password
+=> forgot password page
 
-*** Taking Image. ***
-	add upload image.
+==========> imag <==========
+=> upload photo
 
-*** Image ***
-	Add total Likes,
-	f: count total likes, and add it to the table, (to use after each like/dislike).
+==========> sett <==========
+=> change mail
 
-*** Reglages ***
-	change Mail,
-
-PAGINATION !!!!
-MAIL FOR COMMENT !!!
+==========> comm <==========
+=> SEND MAIL TO PHOTO OWNER
+)

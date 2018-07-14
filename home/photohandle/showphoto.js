@@ -63,14 +63,13 @@ function sendcom()
 			alert ("don't be shy write something !");
 		}
 		else if (xhs.status === 200) {
-
-			nbcomment.innerHTML++;
+			com.innerHTML = xhs.responseText;	
 			textbox.value = '';	
+			nbcomment.innerHTML++;
 		}
 
 	};
 	xhs.send('id='+idimg+'&comment='+text);
-getcom();
 }
 
 function getcom()
@@ -90,3 +89,4 @@ function getcom()
 	};
 	xhc.send('id='+idimg);
 }
+getcom();
