@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION['User_id'])
+if (!(isset($_SESSION['User_id'])))
 	echo "not liked";
 else 
 {
