@@ -69,3 +69,14 @@ function likdislike(k) {
 	var idimg = images[k].id;
 	xhr.send('like='+idimg);
 }
+
+document.height = window.height;
+
+document.addEventListener("scroll", test);
+
+function test()
+{
+	if (window.height == document.height)
+		alert (window.inner.height);
+	document.height = document.height + 300;
+}

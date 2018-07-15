@@ -140,7 +140,7 @@ if (isset($_GET['modifmail']))
 	<input type="text" name="newmail"</br>
 	<input type="submit" name="modifmail" value="modifier">
 	</form>
-</div>
+</div></div>
 	<?php include '../head_foot/footer.php'; ?>
 	<script src="../head_foot/menu.js"></script>
 	<script src="../head_foot/header.js"></script>

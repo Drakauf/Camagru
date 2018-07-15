@@ -66,9 +66,9 @@ if ($sqlcheck->rowCount())
  <button id="startbutton">Prendre une photo</button>
 <div id="divoldphotos">
 </div>
+</div>
+</div>
  <?php include_once '../head_foot/footer.php'; ?>
-</div>
-</div>
 	<script src="filtres.js"></script>
 	<script src="../head_foot/header.js"></script>
 	<script src="../head_foot/menu.js"></script>
