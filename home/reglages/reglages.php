@@ -87,7 +87,7 @@ if (isset($_GET['modifmail']))
 <div id="body">
 	<?php include '../head_foot/menu.php'; ?>
 <div id=reglages>
-<h1> Reglages </h1>
+<h1 style="color: white"> Reglages </h1>
 	<form class=reglaform action:"reglages.php" method:"GET">
 
 	<label> Notifications : </label>

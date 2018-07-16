@@ -12,8 +12,8 @@
 #camera {
 	margin-left:auto;
 	margin-right:auto;
-	max-width:680px;
-	max-height:480px;
+	width:680px;
+	height:480px;
 	position: relative;
 	margin-top: 1vh;
 }
@@ -54,7 +54,26 @@
 }
 
 #startbutton{
-	margin-top: 1vh;
+	margin-top: 0.5vh;
+	margin-bottom: 0.5vh;
+	width: 25%;
+	height: 2.5vh;
+	border: 0;
+	color: #FFFFFF;
+	font-size: 100%;
+	background-color: inherit;
+}
+
+#upload{
+	margin-top: 0.5vh;
+	margin-bottom: 0.5vh;
+	width: 25%;
+	height: 2.5vh;
+	border: 0;
+	color: #FFFFFF;
+	font-size: 100%;
+	background-color: inherit;
+	text-align: center;
 }
 
 #divoldphotos {
@@ -72,4 +91,9 @@
 .oldphoto {
 	width: 96px;
 	height: 96px;
+}
+
+.camform{
+	display: inline-block;
+	width:25%;
 }

@@ -64,6 +64,7 @@ if ($sqlcheck->rowCount())
 }?>
 		</div>
  <button id="startbutton">Prendre une photo</button>
+	<input type='file' id="upload" />
 <div id="divoldphotos">
 </div>
 </div>

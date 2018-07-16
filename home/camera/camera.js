@@ -9,6 +9,9 @@
 	startbutton 	= document.querySelector('#startbutton'),
 	filtre			= document.getElementsByClassName("toshow"),
 	oldphoto		= document.getElementById("divoldphotos"),
+	videoplay		= true;
+	var data;
+	var image = new Image();
 	width = 680,
 	height = 480;
 
@@ -70,8 +73,8 @@
 				oldphoto.innerHTML = xhr.responseText;
 		};
 		xhr.send('filtre='+fil+'&data='+data);
-		canvas.height = 0;
-		canvas.width = 0;
+		video.style.display = "block";
+		canvas.style.display = "none";
 	}
 
 	function chargediv()
@@ -80,7 +83,7 @@
 		dpho.open('POST', 'oldphoto.php');
 		dpho.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		dpho.onload = function() {
-				oldphoto.innerHTML = dpho.responseText;
+			oldphoto.innerHTML = dpho.responseText;
 		};
 		dpho.send();
 	}
@@ -88,10 +91,15 @@
 	function takepicture() {
 		canvas.width = width;
 		canvas.height = height;
-		canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-		var data = canvas.toDataURL();
+		if (videoplay){
+			canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+			data = canvas.toDataURL();
+		}
+		else
+			input.value = "";
 		var tosend=data;
 		setfilter(tosend);
+		videoplay = true;
 	}
 
 	startbutton.addEventListener('click', function(ev){
@@ -99,5 +107,37 @@
 		ev.preventDefault();
 	}, false);
 
+
+
+	input		= document.getElementById("upload");
+	input.onchange = function(event)
+	{
+		
+		video.style.display = "none";
+		canvas.style.display = "block";
+		canvas.width = 680;
+		canvas.height = 480;
+
+		if (this.files[0])
+			image.src = window.URL.createObjectURL(this.files[0]);
+		image.addEventListener("load", cargado);
+
+		function cargado(e)
+		{
+			canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+			data = canvas.toDataURL('image/png');
+//		if (videoplay)
+//			{
+//				let stream = video.src;
+//				let tracks = stream.getTracks();
+//
+//				tracks.forEach(function(track) {
+//					track.stop();
+//				});
+//				video.srcObject = null;
+//			}
+			videoplay = false;
+		}
+	}
 })();
 
