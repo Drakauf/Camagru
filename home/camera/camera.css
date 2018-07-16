@@ -34,10 +34,12 @@
 }
 
 .toshow {
-	width: 680px;
+	width: 640px;
 	height: 480px;
 	display: none;
 	position: absolute;
+	margin-left: 20px;
+	margin-right: auto;
 }
 
 #video {
