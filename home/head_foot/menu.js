@@ -41,3 +41,16 @@ function myphotodirect()
 {
 		location.href = "/home/photohandle/myphotos.php";
 }
+
+/*********************************************************************/
+/* Menu: Aller au top photo                                          */
+/*********************************************************************/
+
+var camera = document.getElementById("topphoto");
+camera.addEventListener("click", topdirect);
+function topdirect()
+{
+		location.href = "/home/photohandle/topfoto.php";
+}
+
+

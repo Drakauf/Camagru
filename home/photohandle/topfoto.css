@@ -1,0 +1,23 @@
+#slidebody{
+	text-align: center;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+	align-items: center;
+	min-height: 93%;
+	overflow-x: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.mySlides{
+	height: 480px;
+	width: 680px;
+}
+
+#theslides{
+	width: 680px;
+	height: 480px;
+}
