@@ -1,3 +1,6 @@
+function winload()
+{
+
 var images = document.getElementsByClassName("image");
 var likesph = document.getElementsByClassName("likimg");
 var likesnb = document.getElementsByClassName("likes");
@@ -69,14 +72,25 @@ function likdislike(k) {
 	var idimg = images[k].id;
 	xhr.send('like='+idimg);
 }
+}
+winload();
+var reload = document.getElementById("loadmore");
+refresh.addEventListener("click", winload);
+reload.addEventListener("click", load);
+var imgdis = document.getElementById("imgdisplay");
+var images = document.getElementsByClassName("image");
 
-document.height = window.height;
-
-document.addEventListener("scroll", test);
-
-function test()
+function load()
 {
-	if (window.height == document.height)
-		alert (window.inner.height);
-	document.height = document.height + 300;
+	var lastid = images[image.length - 1].id;
+	var xhp = new XMLHttpRequest();
+	xhp.open('POST', 'pagination.php');
+	xhp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhp.onload = function() {
+		if (xhp.responseText == "nomore")
+			reload.style.display = "none";
+		else
+		imgdis.innerHTML = imgdis.innerHTML + xhp.responseText;
+	};
+	xhp.send('id='+lastid);
 }

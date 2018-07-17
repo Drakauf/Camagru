@@ -3,7 +3,7 @@ session_start();
 include '/var/www/html/functions/bdco.php';
 $db = dataco();
 
-$bdimage = $db->prepare('SELECT * FROM Image ORDER BY image_id DESC');
+$bdimage = $db->prepare('SELECT * FROM Image ORDER BY image_id DESC LIMIT 5');
 $bdimage->execute();
 $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -54,9 +54,11 @@ $nbcomments = $comments->rowCount();
 ?>
 		</div>
 	</div>
+<div id=ref><button id=loadmore> Load more content </button><button id=refresh> refresh script </button><div>
+	<script src="photoevent.js"></script>
+</div>
 </div>
 	<?php include 'head_foot/footer.php'; ?>
 	<script src="head_foot/menu.js"></script>
-	<script src="photoevent.js"></script>
 	</body>
 </html>

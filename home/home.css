@@ -101,3 +101,12 @@
 .likes{
 	float: right;
 }
+
+#loadmore{
+	display: inline-block;
+}
+
+#ref{
+	margin-left: auto;
+	margin-right: auto;
+}
