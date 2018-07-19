@@ -9,6 +9,10 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 		{
 			$insfail = 2;
 		}
+		else if (strlen($_GET['ipasswd']) < 8 || ctype_alpha($_GET['ipasswd']) || is_numeric($_GET['ipasswd']))
+		{
+			$insfail = 7;
+		}
 		else if (strlen($_GET['ipseudo']) > 15)
 		{
 			$insfail = 5;
@@ -91,6 +95,8 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'connection')
 				{echo "<p> Pseudo trop long (15 caracteres max) ...</p>";}?>
 				<?php if (isset($insfail) && $insfail == 6)
 				{echo "<p> Adresse mail invalide ...</p>";}?>
+				<?php if (isset($insfail) && $insfail == 7)
+				{echo "<p> Mot de passe non securise, 8caracteres min avec lettres + chiffres.</p>";}?>
 			</div>
 			<form  action:"connection.php" method:"GET">
 				<label for="imail">Mail: </label>

@@ -2,7 +2,7 @@
 session_start();
 
 if (!(isset($_SESSION['User'])))
-echo '<script type="text/javascript"> location.href = "/"; </script>';
+	echo '<script type="text/javascript"> location.href = "/"; </script>';
 
 include '/var/www/html/functions/bdco.php';
 $db = dataco();
@@ -30,19 +30,27 @@ if (isset($_GET['passwd']))
 {
 	if (isset($_GET['mdp'], $_GET['oldmdp'], $_GET['cmdp']))
 	{
-		$hashmdp = hash('sha512', $_GET['mdp']);
-		$oldmdp = hash('sha512', $_GET['oldmdp']);
-		$hashcmdp = hash('sha512', $_GET['cmdp']);
-		if ($hashmdp != $hashcmdp)
-			$mdpsucces = 1;
-		else if ($oldmdp != $table['mdp'])
-			$mdpsucces = 2;
+		if (strlen($_GET['mdp']) < 8 || ctype_alpha($_GET['mdp']) || is_numeric($_GET['mdp']))
+		{
+			$mdpsucces = 3;
+		}
 		else
 		{
-			$sqlmdp = $db->prepare('UPDATE User SET mdp=? WHERE pseudo LIKE ?');
-			$sqlmdp->execute([$hashmdp, htmlspecialchars($_SESSION['User'])]);
+			$hashmdp = hash('sha512', $_GET['mdp']);
+			$oldmdp = hash('sha512', $_GET['oldmdp']);
+			$hashcmdp = hash('sha512', $_GET['cmdp']);
+			if ($hashmdp != $hashcmdp)
+				$mdpsucces = 1;
+			else if ($oldmdp != $table['mdp'])
+				$mdpsucces = 2;
+			else
+			{
+				$sqlmdp = $db->prepare('UPDATE User SET mdp=? WHERE pseudo LIKE ?');
+				$sqlmdp->execute([$hashmdp, htmlspecialchars($_SESSION['User'])]);
+				$mdpsucces = 5;
+			}
+			unset($_GET);
 		}
-		unset($_GET);
 	}
 	else
 		$mdpsucces = 0;
@@ -75,9 +83,9 @@ if (isset($_GET['modifmail']))
 		<link rel="stylesheet" href="../head_foot/header.css">
 		<link rel="stylesheet" href="reglages.css">
 		<link rel="stylesheet" href="../head_foot/menu.css">
-		<script type="text/javascript">
-			var log='<?php echo $_SESSION['User'] ?>'
-		</script>
+<script type="text/javascript">
+var log='<?php echo $_SESSION['User'] ?>'
+	</script>
 </head>
 <body>
 
@@ -92,11 +100,11 @@ if (isset($_GET['modifmail']))
 
 	<label> Notifications : </label>
 <?php if (isset($notifsucces)){ 
-	if ($notifsucces == 1) 
-		echo "<p> vous receverez des notification quand vos photo seront commente</p>";
-	if ($notifsucces == 0)
-		echo "<p> vous ne receverez plus de notification si une de vos photo est commente </p>";
-	unset($notiftsucces);}?>
+if ($notifsucces == 1) 
+	echo "<p> vous receverez des notification quand vos photo seront commente</p>";
+if ($notifsucces == 0)
+	echo "<p> vous ne receverez plus de notification si une de vos photo est commente </p>";
+unset($notiftsucces);}?>
 	<select name="notification">
 			<option value="oui">Oui</option>
 			<option value="non">Non</option>
@@ -107,13 +115,17 @@ if (isset($_GET['modifmail']))
 	<form class=reglaform action:"reglages.php" method:"GET">
 		<legend> Modifier le mot de passe </legend></br>
 <?php if (isset($mdpsucces)){
-	if ($mdpsucces == 0)
-		echo "<p> Veuillez remplir tout les champs </p>";
-	if ($mdpsucces == 1)
-		echo "<p> Le mot de passe et le mot de passe de confirmation sont differents </p>";
-	if ($mdpsucces == 2)
-		echo "<p> L'ancien mot de passe ne correspond pas.</p>";
-	unset($mdpsucces);}?>
+if ($mdpsucces == 0)
+	echo "<p> Veuillez remplir tout les champs </p>";
+if ($mdpsucces == 1)
+	echo "<p> Le mot de passe et le mot de passe de confirmation sont differents </p>";
+if ($mdpsucces == 2)
+	echo "<p> L'ancien mot de passe ne correspond pas.</p>";
+if ($mdpsucces == 3)
+	echo "<p> Mot de passe non securise, 8caracteres min avec lettres + chiffres.</p>";
+if ($mdpsucces == 5)
+	echo "<p> Mot de passe modifie</p>";
+unset($mdpsucces);}?>
 		<label> Ancien mot de passe: </label>
 		<input type="password" name="oldmdp"></br>
 		<label> Nouveau mot de passe: </label>
@@ -126,12 +138,12 @@ if (isset($_GET['modifmail']))
 	<form class=reglaform action:"reglages.php" method:"GET">
 	<legend> Modifier l'addresse mail </legend>
 <?php if (isset($mailsucces)){
-	if ($mailsucces == 0)
-		echo "<p> Veuillez remplir tout les champs </p>";
-	if ($mailsucces == 1)
-		echo "<p> Les information donnees sont erronees</p>";
-	if ($mailsucces == 2)
-		echo "<p>Addresse mail non valide </p>";}?>
+if ($mailsucces == 0)
+	echo "<p> Veuillez remplir tout les champs </p>";
+if ($mailsucces == 1)
+	echo "<p> Les information donnees sont erronees</p>";
+if ($mailsucces == 2)
+	echo "<p>Addresse mail non valide </p>";}?>
 	<label> Ancien Mail: </label>
 	<input type="text" name="oldmail"></br>
 	<label> Pseudo: </label>

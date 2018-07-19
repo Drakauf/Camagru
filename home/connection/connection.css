@@ -1,5 +1,4 @@
 #bigdiv {
-	background-color:red;
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -110,7 +109,6 @@ input {
 }
 
 #error {
-	background-color: green;
 	margin-left: 25%;
 	width:35%;
 }
