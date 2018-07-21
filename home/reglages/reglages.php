@@ -74,6 +74,25 @@ if (isset($_GET['modifmail']))
 		$mailsuccess = 0;
 }
 
+if (isset($_GET['modifname']))
+{
+	if (strlen($_GET['npseudo']) > 26 || strlen($_GET['npseudo']) < 2)
+		$namesucces = 1;
+	else
+	{
+		$changename = $db->prepare('SELECT * FROM User WHERE pseudo = ?');
+		$changename->execute([$_GET['npseudo']]);
+		if ($changename->rowCount() != 0)
+			$namesucces = 2;
+		else
+		{
+			$change = $db->prepare('UPDATE User SET pseudo=? WHERE pseudo LIKE ?');
+			$change->execute([$_GET['npseudo'], $_SESSION['User']]);
+			$namesucces = 3;
+		}
+		unset($_GET);
+}
+}
 ?>
 
 <html>
@@ -151,6 +170,21 @@ if ($mailsucces == 2)
 	<label> Nouveau Mail: </label>
 	<input type="text" name="newmail"</br>
 	<input type="submit" name="modifmail" value="modifier">
+	</form>
+<form class=reglaform action:"reglages.php" method:"GET">
+<legend> Changer de pseudo </legend>
+<?php if (isset($namesucces)){
+if ($namesucces == 0)
+	echo "<p> Veuillez remplir tout les champs </p>";
+if ($namesucces == 1)
+	echo "<p> Pseudo trop non trop long / trop cour</p>";
+if ($namesucces == 2)
+	echo "<p> Pseudo deja utilise </p>";
+if ($namesucces == 3)
+	echo "<p> Pseudo modifie </p>";}?>
+	<label> Nouveau Pseudo: </label>
+	<input type="text" name="npseudo"></br>
+	<input type="submit" name="modifname" value="modifier">
 	</form>
 </div></div>
 	<?php include '../head_foot/footer.php'; ?>
