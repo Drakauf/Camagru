@@ -15,17 +15,26 @@
 	width = 680,
 	height = 480;
 
-	navigator.mediaDevices.getUserMedia({ video: true, audio: false
-		     },
-			function(stream) {
-					var vendorURL = window.URL || window.webkitURL;
-					video.src = vendorURL.createObjectURL(stream);
-				video.play();
-			},
-			function(err) {
-				console.log("An error occured! " + err);
-			}
-			);
+	navigator.getUserMedia = navigator.getUserMedia ||
+		navigator.webkitGetUserMedia ||
+		navigator.mozGetUserMedia;
+
+	if (navigator.getUserMedia) {
+		navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
+				function(stream) {
+					var video = document.querySelector('video');
+					video.srcObject = stream;
+					video.onloadedmetadata = function(e) {
+						video.play();
+					};
+				},
+				function(err) {
+					console.log("The following error occurred: " + err.name);
+				}
+				);
+	} else {
+		console.log("getUserMedia not supported");
+	}
 	video.addEventListener('canplay', function(ev){
 		if (!streaming) {
 			video.setAttribute('width', width);
@@ -100,7 +109,7 @@
 	input		= document.getElementById("upload");
 	input.onchange = function(event)
 	{
-		
+
 		video.style.display = "none";
 		canvas.style.display = "block";
 		canvas.width = 680;
@@ -114,16 +123,16 @@
 		{
 			canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
 			data = canvas.toDataURL('image/png');
-//		if (videoplay)
-//			{
-//				let stream = video.src;
-//				let tracks = stream.getTracks();
-//
-//				tracks.forEach(function(track) {
-//					track.stop();
-//				});
-//				video.srcObject = null;
-//			}
+			//		if (videoplay)
+			//			{
+			//				let stream = video.src;
+			//				let tracks = stream.getTracks();
+			//
+			//				tracks.forEach(function(track) {
+			//					track.stop();
+			//				});
+			//				video.srcObject = null;
+			//			}
 			videoplay = false;
 		}
 	}
