@@ -15,23 +15,11 @@
 	width = 680,
 	height = 480;
 
-	navigator.getMedia = ( navigator.getUserMedia ||
-			navigator.webkitGetUserMedia ||
-			navigator.mozGetUserMedia ||
-			navigator.msGetUserMedia);
-
-	navigator.getMedia(
-			{
-				video: true,
-				audio: false
-			},
+	navigator.mediaDevices.getUserMedia({ video: true, audio: false
+		     },
 			function(stream) {
-				if (navigator.mozGetUserMedia) {
-					video.mozSrcObject = stream;
-				} else {
 					var vendorURL = window.URL || window.webkitURL;
 					video.src = vendorURL.createObjectURL(stream);
-				}
 				video.play();
 			},
 			function(err) {

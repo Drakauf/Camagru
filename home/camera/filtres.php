@@ -53,7 +53,7 @@ if ($sqlcheck->rowCount())
 	echo "<img src=$img_p alt=$img_n class='toshow'>";
 }?>
 
-<video id="video"></video>
+<video id="video" autoplay></video>
 		</div>
 		<div id="filtres">
 	<?php foreach ($filtres as $filter)
