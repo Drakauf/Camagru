@@ -11,9 +11,9 @@ else
 			echo ("Ce compte n'existe pas ou a deja ete active");
 		else
 		{
-			echo "here";
 			$sqlinsert = $db->prepare('UPDATE User SET active = 1 WHERE pseudo LIKE ?');
-		$sqlinsert->execute([$_GET['log']]);
+			$sqlinsert->execute([$_GET['log']]);
+			header("Location: ../home.php");
 		}
 }
 ?>

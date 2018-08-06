@@ -74,23 +74,3 @@ function likdislike(k) {
 }
 }
 winload();
-var reload = document.getElementById("loadmore");
-refresh.addEventListener("click", winload);
-reload.addEventListener("click", load);
-var imgdis = document.getElementById("imgdisplay");
-var images = document.getElementsByClassName("image");
-
-function load()
-{
-	var lastid = images[image.length - 1].id;
-	var xhp = new XMLHttpRequest();
-	xhp.open('POST', 'pagination.php');
-	xhp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	xhp.onload = function() {
-		if (xhp.responseText == "nomore")
-			reload.style.display = "none";
-		else
-		imgdis.innerHTML = imgdis.innerHTML + xhp.responseText;
-	};
-	xhp.send('id='+lastid);
-}

@@ -43,7 +43,7 @@ function ft_mail($mail, $pseudo, $cle)
 		Pour activer votre compte, veuillez cliquer sur le lien ci dessous
 		ou copier/coller dans votre navigateur internet.
 		 
-		http://localhost:8008/home/connection/activation.php?log=$pseudo&cle=$cle
+		http://localhost:8007/home/connection/activation.php?log=$pseudo&cle=$cle
  
 	---------------
 		Ceci est un mail automatique, Merci de ne pas y répondre.";

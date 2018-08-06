@@ -17,10 +17,10 @@ if (isset($_GET['submit']) && $_GET['submit'] == 'inscription')
 		{
 			$insfail = 5;
 		}
-		//		else if (!preg_match("#^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$#", $_GET['imail']))
-		//		{
-		//			$insfail = 6;
-		//		}
+				else if (!preg_match("#^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$#", $_GET['imail']))
+				{
+					$insfail = 6;
+				}
 		else 
 		{
 			include ('../../functions/co_ins.php');
@@ -178,7 +178,7 @@ unset($res);}?>
 				<label for="cmdp">MDP: </label>
 				<input type="password" name="cpasswd"<br>
 				<input  id="okey3" type="submit" name="submit"  value="Connection">
-				<input  id="okey3" type="submit" name="submit"  value="Forgot">
+				<input  id="okey4" type="submit" name="submit"  value="Forgot">
 			</form>
 		</div>
 		<div id="acceuil">
