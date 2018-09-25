@@ -25,16 +25,31 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-content:flex-start;
-	min-height: 93%;
+	min-height: 92%;
 	overflow-x: auto;
+}
+
+#pageselector {
+	width : 100%;
+	text-align : center;
+	font-size: 80%;
+	margin-top: 2.5%;
+	height: 2.5%;
+}
+
+#imgpage
+{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .imgbody {
 	display: inline-block;
-	margin-top: 0.5%;
+	margin-top: 2.5%;
 	margin-bottom: 0.5%;
-	margin-left: 0.5%;
-	margin-right: 0.5%;
+	margin-left: 5%;
+	margin-right: 5%;
 	min-width: 255px;
 	min-height: 255px;
 	max-width: 650px;

@@ -37,7 +37,7 @@ function inscri($mail, $pseudo, $pass){
 function ft_mail($mail, $pseudo, $cle)
 {
 	$sujet = "Activer votre compte";
-	$entete = "From: shtheva@camagram.com";
+	$entete = "From: shthevak@camagram.com";
 	$message = "Bienvenue sur VotreSite,
 		 
 		Pour activer votre compte, veuillez cliquer sur le lien ci dessous

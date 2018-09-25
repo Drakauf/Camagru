@@ -123,8 +123,6 @@ var log='<?php if (isset($_SESSION['User'])) echo $_SESSION["User"];?>'
 			<p id="intro">texte pour lefun fjhwevfhjewj fewjfbjewbf bfjqbfjb jkwebfk bewfkbewk bfkewbfjk fjkbewjkbf jkewbkjb ewjkfbejkwbf jkewbfjkbewjk bfewjkbf jkewbfjkbewjkfb jkewbfjkewbfjk bewjkfbjk ewbfjkb ewjkfb ejkwbfejkwbfjk bewfjkbewjkfb ejkwbfejkwbfjkewbfjkbewjkfbewjkbfjk bwefjk</p>
 		<?php /* --------------- div pour inscription error --------------- */ ?>
 			<div id="error">
-<?php if (isset($res))
-{echo $res;}?>
 <?php if (isset($insfail) && $insfail == 1)
 {echo "<p> Merci de remplir tout les champs</p>"; unset($insfail);}?>
 <?php if (isset($insfail) && $insfail == 2)

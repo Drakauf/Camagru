@@ -2,10 +2,39 @@
 session_start();
 include '/var/www/html/functions/bdco.php';
 $db = dataco();
-
+/*
 $bdimage = $db->prepare('SELECT * FROM Image ORDER BY image_id DESC');
 $bdimage->execute();
 $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
+*/
+
+/***************************************************************
+ * INFINITE PAGINATION                                         *
+ * ************************************************************/
+
+if (isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0)
+		$page= $_GET['page'];
+else
+	$page = 1;
+
+$maximg = 5;
+$debut = ($page - 1) * $maximg;
+
+$bdimage = $db->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM Image ORDER BY image_id DESC LIMIT :maximg OFFSET :debut');
+$bdimage->bindValue('maximg', $maximg, PDO::PARAM_INT);
+$bdimage->bindValue('debut', $debut, PDO::PARAM_INT);
+$bdimage->execute();
+$imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
+
+$imagetablen = $db->query('SELECT found_rows()');
+$totalphoto = $imagetablen->fetchColumn();
+$nbpage = ceil($totalphoto / $maximg);
+
+/***************************************************************
+ * INFINITE PAGINATION                                         *
+ * ************************************************************/
+
+
 ?>
 <html>
 	<head>
@@ -27,11 +56,31 @@ $imagestab = $bdimage->fetchAll(PDO::FETCH_ASSOC);
 <?php /* --------------- --------------- --------------- Images / Menu --------------- --------------- --------------- */ ?>
 			<div id="body">
 		<?php include 'head_foot/menu.php'; ?>
-	<script src="home.js"></script>
+	<script src="home.js"></script><div id="imgpage">
+
+
+
+<div id=pageselector>
+	<?php
+for ($i = 1; $i <= $nbpage; $i++):
+	if ($page == $i):
+		?><a><?php echo $i; ?></a> <?php
+	else :
+	    ?><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a> <?php
+	endif;
+	endfor;
+?>
+</div>
+
+
 <div id=imgdisplay>
 <?php
-if (count($imagestab) == 0)
+if (count($imagestab) == 0 && ($page == 1 || $page == 0))
 		echo "<h1>There is no image yet, be the first to post one =D</h1>";
+else if (count($imagestab) == 0)
+		echo "<h1>Hmmm, wrong way, ahere are you going ? =D</h1>";	
+	else 
+	{
 foreach ($imagestab as $images)
 {
 	$user = $db->prepare('SELECT * FROM User WHERE user_id = ?');
@@ -49,10 +98,24 @@ $nbcomments = $comments->rowCount();
 
 
 		echo '<div class="imgbody"><img class="image" id="'.$images['image_id'].'" src="data:image/png;base64,'.$images['image_src'].'" width="440" height="440"/><div id="usercarac"><div id="user_photo"><img src="data:image/png;base64,'.$username['user_ph'].'"/></div><h4 id=username>  '.$username['pseudo'].'</h4></div><div id=photocarac><h3>'.$images['image_name'].'</h3><p id=nbcomment>'.$nbcomments.'</p><img id=coming src="/home/photohandle/comment.png"><p class=likes>'.$nblikes.'</p><img class=likimg src=/></div></div>';
-}
+	}
+	}
 ?>
-		</div>
 	</div>
+
+<div id=pageselector>
+	<?php
+for ($i = 1; $i <= $nbpage; $i++):
+	if ($page == $i):
+		?><a><?php echo $i; ?></a> <?php
+	else :
+	    ?><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a> <?php
+	endif;
+	endfor;
+?>
+</div>
+</div>
+</div>
 	<script src="photoevent.js"></script>
 </div>
 </div>
