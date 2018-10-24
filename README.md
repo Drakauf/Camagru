@@ -2,6 +2,9 @@
 Camagru 
 </h1>
 
+<h3> Description</h3>
+Ce premier projet vous remet dans le bain après la piscine PHP : vous allez devoir réaliser, en PHP, un petit site Instagram-like permettant à des utilisateurs de réaliser et partager des photo-montages. Vous allez ainsi implémenter, à mains nues (les frameworks sont interdits), les fonctionnalités de base rencontrées sur la majorité des sites possédant une base utilisateur.</br>
+
 <p><b>Objectif :</b> Créer un site instagram-like.</p>
 <p><b>Langage :</b> Php, HTML, CSS, Javascript.</p>
 <p><b>Base de données :</b> MySql.</p>
